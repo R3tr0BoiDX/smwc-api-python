@@ -1,5 +1,5 @@
 from typing import List, Union
-from types.user import User
+from smwc_types.user import User
 
 
 class File:

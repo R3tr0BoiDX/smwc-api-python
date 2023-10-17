@@ -1,10 +1,12 @@
 from enum import Enum
-from types.pagination import Pagination
 from typing import List, Tuple, Union
 
 import requests
 
+from smwc_types import Pagination
+
 BASE_URL = "https://www.smwcentral.net/ajax.php"
+TIMEOUT = 10
 
 
 class Section(Enum):
@@ -27,7 +29,7 @@ def get_section(
     page_number: int = 0,
     sort: SortBy = SortBy.ANY,
     asc: Union[bool, None] = None,
-    filters: List[Tuple[str, str]] = [],
+    filters: Union[List[Tuple[str, str]], None] = None,
 ) -> Pagination:
     params = {"a": "getsectionlist", "s": section.value, "u": 0 if moderated else 1}
 
@@ -40,10 +42,11 @@ def get_section(
     if isinstance(asc, bool):
         params["d"] = "asc" if asc else "desc"
 
-    for f in filters:
-        print(f)
+    if isinstance(filters, list):
+        for f in filters:
+            print(f)
 
-    response = requests.get(BASE_URL, params=params)
+    response = requests.get(BASE_URL, params=params, timeout=TIMEOUT)
 
     if response.status_code == 200:
         return Pagination(response.json())

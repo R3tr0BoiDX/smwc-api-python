@@ -1,8 +1,8 @@
 from typing import Union, List
 
-from types.user import User
-from types.token import Token
-from types.file import File
+from smwc_types.user import User
+from smwc_types.token import Token
+from smwc_types.file import File
 
 
 class Pagination:
