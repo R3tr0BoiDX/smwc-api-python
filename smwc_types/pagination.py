@@ -1,6 +1,7 @@
 from typing import List, Union
 
-from smwc_types import File, Token, User, Section
+from smwc_types import File, Token, User
+from smwc_types.section import Section
 from smwc_types.files import SMWFile, YIFile, SM64File
 
 

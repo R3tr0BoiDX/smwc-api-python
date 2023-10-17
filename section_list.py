@@ -2,7 +2,8 @@ from typing import List, Tuple, Union
 
 import requests
 
-from smwc_types import Pagination, Section, SortBy
+from smwc_types import Pagination, SortBy
+from smwc_types.section import Section
 
 BASE_URL = "https://www.smwcentral.net/ajax.php"
 TIMEOUT = 10

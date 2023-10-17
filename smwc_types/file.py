@@ -1,5 +1,6 @@
 from typing import List, Union
-from smwc_types import User, Section
+from smwc_types import User
+from smwc_types.section import Section
 
 
 class File:
@@ -12,7 +13,7 @@ class File:
     moderated: bool
     authors: List[User]
     submitter: Union[User, None]
-    rating: float
+    rating: Union[float, None]
     size: int
     downloads: int
     download_url: str
@@ -29,7 +30,7 @@ class File:
         for author in data.get("authors"):
             self.authors.append(User(author))
         self.submitter = User(data.get("submitter")) if data.get("submitter") else None
-        self.rating = float(data.get("rating"))
+        self.rating = float(data.get("rating")) if data.get("rating") else None
         self.size = int(data.get("size"))
         self.downloads = int(data.get("downloads"))
         self.download_url = data.get("download_url")

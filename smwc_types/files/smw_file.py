@@ -30,11 +30,12 @@ class SMWFile(File):
         super().__init__(data)
 
         # Set new attributes
-        self.demo = convert_yes_no(data.get("demo"))
-        self.featured = convert_yes_no(data.get("featured"))
-        self.length = extract_number(data.get("length"))
-        self.difficulties = get_difficulties(data.get("difficulty"))
-        self.description = data.get("description")
+        fields = data.get("fields")
+        self.demo = convert_yes_no(fields.get("demo"))
+        self.featured = convert_yes_no(fields.get("featured"))
+        self.length = extract_number(fields.get("length"))
+        self.difficulties = get_difficulties(fields.get("difficulty"))
+        self.description = fields.get("description")
 
 
 def get_difficulties(difficulty_raw: str) -> List[Difficulty]:

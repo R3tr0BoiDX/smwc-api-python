@@ -14,6 +14,7 @@ class YIFile(File):
         super().__init__(data)
 
         # Set new attributes
-        self.demo = convert_yes_no(data.get("demo"))
-        self.length = extract_number(data.get("length"))
-        self.description = data.get("description")
+        fields = data.get("fields")
+        self.demo = convert_yes_no(fields.get("demo"))
+        self.length = extract_number(fields.get("length"))
+        self.description = fields.get("description")
