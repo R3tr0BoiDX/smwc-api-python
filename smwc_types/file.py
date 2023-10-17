@@ -1,5 +1,6 @@
 from typing import List, Union
 from smwc_types import User
+from smwc_types.version import Version
 from smwc_types.section import Section
 
 
@@ -19,6 +20,7 @@ class File:
     download_url: str
     obsoleted_by: Union[int, None]
     fields: str
+    extended: bool = False
 
     def __init__(self, data: dict) -> None:
         self.id = int(data.get("id"))
@@ -38,3 +40,11 @@ class File:
             int(data.get("obsoleted_by")) if data.get("obsoleted_by") else None
         )
         self.fields = data.get("fields")
+
+    def add_additional_values(self, data: dict) -> None:
+        self.extended = True
+        self.tags = data.get("tags")
+        self.versions = []
+        for version in data.get("versions"):
+            self.versions.append(Version(version))
+        self.images = data.get("images")
