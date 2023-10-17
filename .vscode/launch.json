@@ -5,15 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run main",
+            "name": "Run example",
             "type": "python",
             "request": "launch",
-            "module": "main",
+            "module": "example",
             "console": "integratedTerminal",
             "justMyCode": true
         },
         {
-            "name": "Python: Aktuelle Datei",
+            "name": "Run current file",
             "type": "python",
             "request": "launch",
             "program": "${file}",

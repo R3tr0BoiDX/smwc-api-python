@@ -1,33 +1,18 @@
-from enum import Enum
 from typing import List, Tuple, Union
 
 import requests
 
-from smwc_types import Pagination
+from smwc_types import Pagination, Section, SortBy
 
 BASE_URL = "https://www.smwcentral.net/ajax.php"
 TIMEOUT = 10
 
 
-class Section(Enum):
-    smw = "smwhacks"
-    yi = "yihacks"
-    sm64 = "sm64hacks"
-
-
-class SortBy(Enum):
-    ANY = "any"  # for section-dependent sorting
-    DATE = "date"
-    NAME = "name"
-    FILESIZE = "filesize"
-    DOWNLOADS = "downloads"
-
-
-def get_section(
+def get_section_list(
     section: Section,
     moderated: bool = True,
     page_number: int = 0,
-    sort: SortBy = SortBy.ANY,
+    sort: Union[SortBy, None] = None,
     asc: Union[bool, None] = None,
     filters: Union[List[Tuple[str, str]], None] = None,
 ) -> Pagination:
@@ -36,7 +21,7 @@ def get_section(
     if page_number > 0:
         params["n"] = page_number
 
-    if sort != SortBy.ANY:
+    if sort:
         params["o"] = sort.value
 
     if isinstance(asc, bool):

@@ -1,12 +1,12 @@
 from typing import List, Union
-from smwc_types.user import User
+from smwc_types import User, Section
 
 
 class File:
     """Any type of file on SMW Central"""
 
     id: int
-    section: str
+    section: Section
     name: str
     time: int
     moderated: bool
@@ -21,7 +21,7 @@ class File:
 
     def __init__(self, data: dict) -> None:
         self.id = int(data.get("id"))
-        self.section = data.get("section")
+        self.section = Section(data.get("section"))
         self.name = data.get("name")
         self.time = int(data.get("time"))
         self.moderated = bool(data.get("moderated"))
