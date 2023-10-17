@@ -1,0 +1,1358 @@
+{
+    "total":2154,
+    "per_page":50,
+    "current_page":1,
+    "last_page":44,
+    "first_page_url":"https:\/\/www.smwcentral.net\/ajax.php?a=getsectionlist&s=smwhacks&u=0&n=1&o=date&d=desc",
+    "last_page_url":"https:\/\/www.smwcentral.net\/ajax.php?a=getsectionlist&s=smwhacks&u=0&n=44&o=date&d=desc",
+    "next_page_url":"https:\/\/www.smwcentral.net\/ajax.php?a=getsectionlist&s=smwhacks&u=0&n=2&o=date&d=desc",
+    "prev_page_url":null,
+    "from":1,
+    "to":50,
+    "data":[
+       {
+          "id":35030,
+          "section":"smwhacks",
+          "name":"Wake Up Call",
+          "time":1697551393,
+          "moderated":true,
+          "authors":[
+             {
+                "id":42284,
+                "name":"lustreflux"
+             }
+          ],
+          "submitter":null,
+          "rating":0,
+          "size":1515188,
+          "downloads":85,
+          "download_url":"https:\/\/dl.smwcentral.net\/35030\/WakeUpCall.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"Yes",
+             "featured":"No",
+             "length":"28 exit(s)",
+             "difficulty":"Kaizo: Intermediate, Standard: Very Hard",
+             "description":""
+          }
+       },
+       {
+          "id":35280,
+          "section":"smwhacks",
+          "name":"Blind Race: Lucky Pick",
+          "time":1697512420,
+          "moderated":true,
+          "authors":[
+             {
+                "id":55578,
+                "name":"Firstnamebutt"
+             },
+             {
+                "id":59286,
+                "name":"Justepic"
+             }
+          ],
+          "submitter":null,
+          "rating":0,
+          "size":412660,
+          "downloads":38,
+          "download_url":"https:\/\/dl.smwcentral.net\/35280\/Blind%20Race%20Lucky%20Pick.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"5 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":35279,
+          "section":"smwhacks",
+          "name":"The Swift Skooter Parallelogram",
+          "time":1697508443,
+          "moderated":true,
+          "authors":[
+             {
+                "id":39847,
+                "name":"placeholdertest"
+             }
+          ],
+          "submitter":null,
+          "rating":0,
+          "size":1324153,
+          "downloads":41,
+          "download_url":"https:\/\/dl.smwcentral.net\/35279\/pht.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"1 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":35232,
+          "section":"smwhacks",
+          "name":"Super Mario Horizons 1.0b",
+          "time":1697493150,
+          "moderated":true,
+          "authors":[
+             {
+                "id":42093,
+                "name":"MegacesarCG"
+             }
+          ],
+          "submitter":null,
+          "rating":0,
+          "size":1420667,
+          "downloads":160,
+          "download_url":"https:\/\/dl.smwcentral.net\/35232\/SMH1.0b.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"57 exit(s)",
+             "difficulty":"Standard: Hard",
+             "description":""
+          }
+       },
+       {
+          "id":35251,
+          "section":"smwhacks",
+          "name":"Rose Tinted Glasses",
+          "time":1697419038,
+          "moderated":true,
+          "authors":[
+             {
+                "id":61957,
+                "name":"ponypowerboi"
+             }
+          ],
+          "submitter":null,
+          "rating":0,
+          "size":459888,
+          "downloads":132,
+          "download_url":"https:\/\/dl.smwcentral.net\/35251\/Rose%20Tinted%20Glasses.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"5 exit(s)",
+             "difficulty":"Kaizo: Beginner",
+             "description":""
+          }
+       },
+       {
+          "id":35044,
+          "section":"smwhacks",
+          "name":"Thread the Needle",
+          "time":1697379308,
+          "moderated":true,
+          "authors":[
+             {
+                "id":52803,
+                "name":"NixKillsMyths"
+             }
+          ],
+          "submitter":null,
+          "rating":0,
+          "size":565491,
+          "downloads":102,
+          "download_url":"https:\/\/dl.smwcentral.net\/35044\/Thread%20the%20Needle%201.3.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"1 exit(s)",
+             "difficulty":"Kaizo: Expert",
+             "description":""
+          }
+       },
+       {
+          "id":35215,
+          "section":"smwhacks",
+          "name":"Sweet World",
+          "time":1697172003,
+          "moderated":true,
+          "authors":[
+             {
+                "id":55578,
+                "name":"Firstnamebutt"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":1199315,
+          "downloads":532,
+          "download_url":"https:\/\/dl.smwcentral.net\/35215\/SweetWorld.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"12 exit(s)",
+             "difficulty":"Kaizo: Beginner",
+             "description":""
+          }
+       },
+       {
+          "id":34662,
+          "section":"smwhacks",
+          "name":"Arantes Shells V1.2",
+          "time":1697123511,
+          "moderated":true,
+          "authors":[
+             {
+                "id":53347,
+                "name":"RenanSV"
+             },
+             {
+                "id":53346,
+                "name":"arantes"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":900072,
+          "downloads":806,
+          "download_url":"https:\/\/dl.smwcentral.net\/34662\/Arantes%20Shells%201.2.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"15 exit(s)",
+             "difficulty":"Kaizo: Expert",
+             "description":""
+          }
+       },
+       {
+          "id":35204,
+          "section":"smwhacks",
+          "name":"Kamikaze",
+          "time":1697082381,
+          "moderated":true,
+          "authors":[
+             {
+                "id":49314,
+                "name":"obiet"
+             }
+          ],
+          "submitter":null,
+          "rating":0,
+          "size":1933605,
+          "downloads":281,
+          "download_url":"https:\/\/dl.smwcentral.net\/35204\/kamikaze.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"28 exit(s)",
+             "difficulty":"Kaizo: Beginner",
+             "description":""
+          }
+       },
+       {
+          "id":35061,
+          "section":"smwhacks",
+          "name":"Kuuwote's Level Pack #2",
+          "time":1697076985,
+          "moderated":true,
+          "authors":[
+             {
+                "id":61006,
+                "name":"Kuuwote"
+             }
+          ],
+          "submitter":null,
+          "rating":0,
+          "size":341518,
+          "downloads":179,
+          "download_url":"https:\/\/dl.smwcentral.net\/35061\/Kuuwote%27s%20Level%20Pack%20%232%20%28fixed%29.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"13 exit(s)",
+             "difficulty":"Standard: Normal",
+             "description":""
+          }
+       },
+       {
+          "id":32607,
+          "section":"smwhacks",
+          "name":"The Pit Level 2 REMASTERED",
+          "time":1696974717,
+          "moderated":true,
+          "authors":[
+             {
+                "id":26310,
+                "name":"IgorSantos777"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":533985,
+          "downloads":184,
+          "download_url":"https:\/\/dl.smwcentral.net\/32607\/The%20Pit%20Level%202%20REMASTERED.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"1 exit(s)",
+             "difficulty":"Tool-Assisted: Pit",
+             "description":""
+          }
+       },
+       {
+          "id":35049,
+          "section":"smwhacks",
+          "name":"Super Mario Starlight",
+          "time":1696722399,
+          "moderated":true,
+          "authors":[
+             {
+                "id":38322,
+                "name":"hendog30_"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":527512,
+          "downloads":814,
+          "download_url":"https:\/\/dl.smwcentral.net\/35049\/SuperMarioStarlight.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"30 exit(s)",
+             "difficulty":"Standard: Hard",
+             "description":""
+          }
+       },
+       {
+          "id":35164,
+          "section":"smwhacks",
+          "name":"Play To Win",
+          "time":1696719349,
+          "moderated":true,
+          "authors":[
+             {
+                "id":26246,
+                "name":"Mr. MS"
+             }
+          ],
+          "submitter":null,
+          "rating":4.6667,
+          "size":922413,
+          "downloads":4785,
+          "download_url":"https:\/\/dl.smwcentral.net\/35164\/PlayToWin_1_5_3.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"31 exit(s)",
+             "difficulty":"Standard: Normal",
+             "description":""
+          }
+       },
+       {
+          "id":35173,
+          "section":"smwhacks",
+          "name":"NEW Nightmare cafe 5",
+          "time":1696624950,
+          "moderated":true,
+          "authors":[
+             {
+                "id":46333,
+                "name":"Lush_50"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":1436020,
+          "downloads":215,
+          "download_url":"https:\/\/dl.smwcentral.net\/35173\/New%20Nightmare%20Cafe%205%20V1.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"3 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":35025,
+          "section":"smwhacks",
+          "name":"Super Joe Bros 3 v1.1",
+          "time":1696459731,
+          "moderated":true,
+          "authors":[
+             {
+                "id":51520,
+                "name":"NBSpider"
+             },
+             {
+                "id":null,
+                "name":"Resnov23"
+             },
+             {
+                "id":50449,
+                "name":"The Voipah"
+             },
+             {
+                "id":41965,
+                "name":"Wolfguy423"
+             }
+          ],
+          "submitter":null,
+          "rating":4.6667,
+          "size":1402659,
+          "downloads":1390,
+          "download_url":"https:\/\/dl.smwcentral.net\/35025\/Super%20Joe%20Bros%203%20V1.1.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"Yes",
+             "featured":"No",
+             "length":"23 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":35008,
+          "section":"smwhacks",
+          "name":"Super Breh World",
+          "time":1696373888,
+          "moderated":true,
+          "authors":[
+             {
+                "id":57035,
+                "name":"MagikNinja"
+             },
+             {
+                "id":56920,
+                "name":"dropthehammer2"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":431554,
+          "downloads":716,
+          "download_url":"https:\/\/dl.smwcentral.net\/35008\/SuperBrehWorldV.2.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"8 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":35139,
+          "section":"smwhacks",
+          "name":"Odd Sands",
+          "time":1696334892,
+          "moderated":true,
+          "authors":[
+             {
+                "id":17388,
+                "name":"GbreezeSunset"
+             },
+             {
+                "id":22633,
+                "name":"Lazy"
+             },
+             {
+                "id":29527,
+                "name":"MiracleWater"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":927260,
+          "downloads":1910,
+          "download_url":"https:\/\/dl.smwcentral.net\/35139\/Odd%20Sands.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"28 exit(s)",
+             "difficulty":"Kaizo: Expert",
+             "description":""
+          }
+       },
+       {
+          "id":35118,
+          "section":"smwhacks",
+          "name":"Bowser's Revenge v1.1",
+          "time":1696106426,
+          "moderated":true,
+          "authors":[
+             {
+                "id":51716,
+                "name":"Easy Difficulty"
+             }
+          ],
+          "submitter":null,
+          "rating":3.75,
+          "size":400339,
+          "downloads":2300,
+          "download_url":"https:\/\/dl.smwcentral.net\/35118\/Bowser%27s%20Revenge%20v1.1.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"67 exit(s)",
+             "difficulty":"Standard: Hard",
+             "description":""
+          }
+       },
+       {
+          "id":35107,
+          "section":"smwhacks",
+          "name":"Retrograde Nine",
+          "time":1696002075,
+          "moderated":true,
+          "authors":[
+             {
+                "id":40527,
+                "name":"MarsAmpere"
+             }
+          ],
+          "submitter":null,
+          "rating":4.75,
+          "size":156414,
+          "downloads":652,
+          "download_url":"https:\/\/dl.smwcentral.net\/35107\/Retrograde%20Nine%201.02.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"0 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":35128,
+          "section":"smwhacks",
+          "name":"Fresh Hops",
+          "time":1695904368,
+          "moderated":true,
+          "authors":[
+             {
+                "id":43194,
+                "name":"MorrieTheMagpie"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":1119325,
+          "downloads":276,
+          "download_url":"https:\/\/dl.smwcentral.net\/35128\/Fresh%20Hops%20v1.0.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"14 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":35088,
+          "section":"smwhacks",
+          "name":"The long way home 2",
+          "time":1695732970,
+          "moderated":true,
+          "authors":[
+             {
+                "id":46333,
+                "name":"Lush_50"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":1197496,
+          "downloads":246,
+          "download_url":"https:\/\/dl.smwcentral.net\/35088\/The%20long%20way%20home%20II%20V1.1.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"18 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":34256,
+          "section":"smwhacks",
+          "name":"Super Mario Arbitrium - Demo 2",
+          "time":1695513423,
+          "moderated":true,
+          "authors":[
+             {
+                "id":37544,
+                "name":"Evernn"
+             }
+          ],
+          "submitter":null,
+          "rating":0,
+          "size":1939286,
+          "downloads":361,
+          "download_url":"https:\/\/dl.smwcentral.net\/34256\/Super_Mario_Arbitrium_Demo_2.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"Yes",
+             "featured":"No",
+             "length":"24 exit(s)",
+             "difficulty":"Standard: Very Hard",
+             "description":""
+          }
+       },
+       {
+          "id":35081,
+          "section":"smwhacks",
+          "name":"Unforgiving Tower 3",
+          "time":1695215044,
+          "moderated":true,
+          "authors":[
+             {
+                "id":51716,
+                "name":"Easy Difficulty"
+             }
+          ],
+          "submitter":null,
+          "rating":0,
+          "size":399046,
+          "downloads":346,
+          "download_url":"https:\/\/dl.smwcentral.net\/35081\/Unforgiving%20Tower%203.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"25 exit(s)",
+             "difficulty":"Standard: Hard",
+             "description":""
+          }
+       },
+       {
+          "id":35062,
+          "section":"smwhacks",
+          "name":"Super Mario Bros - Merry Mountain Christmas Adventure",
+          "time":1694931454,
+          "moderated":true,
+          "authors":[
+             {
+                "id":32455,
+                "name":"Bensalot"
+             },
+             {
+                "id":32207,
+                "name":"Nowieso"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":925802,
+          "downloads":2364,
+          "download_url":"https:\/\/dl.smwcentral.net\/35062\/Super%20Mario%20Bros%20-%20Merry%20Moutain%20Christmas%20Adventure%20-%20SMW%20Christmas%20Edition%20V3.1.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"31 exit(s)",
+             "difficulty":"Standard: Normal",
+             "description":""
+          }
+       },
+       {
+          "id":34324,
+          "section":"smwhacks",
+          "name":"New Super Mario World 1: The Twelve Magic Orbs Powered-Up",
+          "time":1694782337,
+          "moderated":true,
+          "authors":[
+             {
+                "id":23105,
+                "name":"Pink Gold Peach"
+             }
+          ],
+          "submitter":null,
+          "rating":4.35,
+          "size":6220049,
+          "downloads":2359,
+          "download_url":"https:\/\/dl.smwcentral.net\/34324\/New%20Super%20Mario%20World%201%20The%20Twelve%20Magic%20Orbs%20POWERED-UP%20v1.1.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"112 exit(s)",
+             "difficulty":"Standard: Hard, Standard: Very Hard",
+             "description":""
+          }
+       },
+       {
+          "id":34840,
+          "section":"smwhacks",
+          "name":"SHATTERED PLAINS",
+          "time":1694602481,
+          "moderated":true,
+          "authors":[
+             {
+                "id":44530,
+                "name":"ageVerrly"
+             }
+          ],
+          "submitter":null,
+          "rating":3.6667,
+          "size":193487,
+          "downloads":323,
+          "download_url":"https:\/\/dl.smwcentral.net\/34840\/plains.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"0 exit(s)",
+             "difficulty":"Standard: Very Hard",
+             "description":""
+          }
+       },
+       {
+          "id":34925,
+          "section":"smwhacks",
+          "name":"MEME 😂👌💯",
+          "time":1694582028,
+          "moderated":true,
+          "authors":[
+             {
+                "id":39461,
+                "name":"The_Uber_Camper"
+             }
+          ],
+          "submitter":null,
+          "rating":4,
+          "size":2003230,
+          "downloads":546,
+          "download_url":"https:\/\/dl.smwcentral.net\/34925\/MEME1.1.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"17 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":34970,
+          "section":"smwhacks",
+          "name":"Super Dank World",
+          "time":1694581839,
+          "moderated":true,
+          "authors":[
+             {
+                "id":55578,
+                "name":"Firstnamebutt"
+             }
+          ],
+          "submitter":null,
+          "rating":4.4,
+          "size":1318940,
+          "downloads":418,
+          "download_url":"https:\/\/dl.smwcentral.net\/34970\/Super_Dank_World.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"19 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":34969,
+          "section":"smwhacks",
+          "name":"Super Napu World",
+          "time":1694522876,
+          "moderated":true,
+          "authors":[
+             {
+                "id":57940,
+                "name":"MrNapkino"
+             }
+          ],
+          "submitter":null,
+          "rating":0,
+          "size":1137776,
+          "downloads":248,
+          "download_url":"https:\/\/dl.smwcentral.net\/34969\/NapuWorld.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"22 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":34298,
+          "section":"smwhacks",
+          "name":"The Great Search",
+          "time":1694180339,
+          "moderated":true,
+          "authors":[
+             {
+                "id":51716,
+                "name":"Easy Difficulty"
+             }
+          ],
+          "submitter":null,
+          "rating":3,
+          "size":265024,
+          "downloads":419,
+          "download_url":"https:\/\/dl.smwcentral.net\/34298\/The%20Great%20Search.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"0 exit(s)",
+             "difficulty":"Standard: Hard",
+             "description":""
+          }
+       },
+       {
+          "id":34920,
+          "section":"smwhacks",
+          "name":"Way of the Tempest",
+          "time":1694023008,
+          "moderated":true,
+          "authors":[
+             {
+                "id":25412,
+                "name":"gui"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":319335,
+          "downloads":647,
+          "download_url":"https:\/\/dl.smwcentral.net\/34920\/tempest1.2.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"5 exit(s)",
+             "difficulty":"Kaizo: Expert",
+             "description":""
+          }
+       },
+       {
+          "id":35019,
+          "section":"smwhacks",
+          "name":"Daymaker: Release From Doomsday v1.3",
+          "time":1693927265,
+          "moderated":true,
+          "authors":[
+             {
+                "id":25879,
+                "name":"Plasma303"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":286429,
+          "downloads":576,
+          "download_url":"https:\/\/dl.smwcentral.net\/35019\/drfdv1-3.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"88 exit(s)",
+             "difficulty":"Standard: Normal",
+             "description":""
+          }
+       },
+       {
+          "id":34952,
+          "section":"smwhacks",
+          "name":"Don't Dig Down",
+          "time":1693915696,
+          "moderated":true,
+          "authors":[
+             {
+                "id":2997,
+                "name":"Jead"
+             }
+          ],
+          "submitter":null,
+          "rating":4.5,
+          "size":276787,
+          "downloads":633,
+          "download_url":"https:\/\/dl.smwcentral.net\/34952\/DontDigDown%20v7.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"2 exit(s)",
+             "difficulty":"Misc.: Troll",
+             "description":""
+          }
+       },
+       {
+          "id":34953,
+          "section":"smwhacks",
+          "name":"Forer - Barnum",
+          "time":1693252025,
+          "moderated":true,
+          "authors":[
+             {
+                "id":28677,
+                "name":"OEO6"
+             }
+          ],
+          "submitter":null,
+          "rating":1,
+          "size":812232,
+          "downloads":312,
+          "download_url":"https:\/\/dl.smwcentral.net\/34953\/Forer%20-%20Barnum%20v1.40.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"13 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":34900,
+          "section":"smwhacks",
+          "name":"Kuuwote's Level Pack #1",
+          "time":1692924873,
+          "moderated":true,
+          "authors":[
+             {
+                "id":61006,
+                "name":"Kuuwote"
+             }
+          ],
+          "submitter":null,
+          "rating":4.6667,
+          "size":64867,
+          "downloads":442,
+          "download_url":"https:\/\/dl.smwcentral.net\/34900\/Kuuwote%27s%20Level%20Pack%20%231.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"3 exit(s)",
+             "difficulty":"Standard: Easy",
+             "description":""
+          }
+       },
+       {
+          "id":34891,
+          "section":"smwhacks",
+          "name":"Mycelium",
+          "time":1692905315,
+          "moderated":true,
+          "authors":[
+             {
+                "id":52964,
+                "name":"schema_tuna"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":859782,
+          "downloads":654,
+          "download_url":"https:\/\/dl.smwcentral.net\/34891\/Mycelium.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"13 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":34929,
+          "section":"smwhacks",
+          "name":"Super Foo World 0",
+          "time":1692878492,
+          "moderated":true,
+          "authors":[
+             {
+                "id":53543,
+                "name":"xhsdf"
+             }
+          ],
+          "submitter":null,
+          "rating":0,
+          "size":219577,
+          "downloads":309,
+          "download_url":"https:\/\/dl.smwcentral.net\/34929\/Super%20Foo%20World%200.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"7 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":34928,
+          "section":"smwhacks",
+          "name":"Ganja World",
+          "time":1692830890,
+          "moderated":true,
+          "authors":[
+             {
+                "id":53723,
+                "name":"Yoshioshi59_"
+             }
+          ],
+          "submitter":null,
+          "rating":0,
+          "size":528476,
+          "downloads":243,
+          "download_url":"https:\/\/dl.smwcentral.net\/34928\/GanjaWorld.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"0 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":34912,
+          "section":"smwhacks",
+          "name":"Slow and Slower",
+          "time":1692648083,
+          "moderated":true,
+          "authors":[
+             {
+                "id":42632,
+                "name":"Captain_Hacko"
+             }
+          ],
+          "submitter":null,
+          "rating":0,
+          "size":442517,
+          "downloads":416,
+          "download_url":"https:\/\/dl.smwcentral.net\/34912\/Slow_and_Slower.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"6 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":34888,
+          "section":"smwhacks",
+          "name":"Paralysis",
+          "time":1692558269,
+          "moderated":true,
+          "authors":[
+             {
+                "id":50484,
+                "name":"RandomType"
+             }
+          ],
+          "submitter":null,
+          "rating":4.5,
+          "size":796073,
+          "downloads":318,
+          "download_url":"https:\/\/dl.smwcentral.net\/34888\/Paralysis.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"16 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":34156,
+          "section":"smwhacks",
+          "name":"Punishing Pothole 3",
+          "time":1692535018,
+          "moderated":true,
+          "authors":[
+             {
+                "id":11960,
+                "name":"Sokobansolver"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":671559,
+          "downloads":141,
+          "download_url":"https:\/\/dl.smwcentral.net\/34156\/PunishingPothole3.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"1 exit(s)",
+             "difficulty":"Tool-Assisted: Kaizo",
+             "description":""
+          }
+       },
+       {
+          "id":34838,
+          "section":"smwhacks",
+          "name":"FloMcNasty World",
+          "time":1692117126,
+          "moderated":true,
+          "authors":[
+             {
+                "id":48147,
+                "name":"AiSnake"
+             }
+          ],
+          "submitter":null,
+          "rating":4,
+          "size":754983,
+          "downloads":385,
+          "download_url":"https:\/\/dl.smwcentral.net\/34838\/FloMcNastyWorld%20v1.1.bps.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"11 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":34843,
+          "section":"smwhacks",
+          "name":"Power Guy World",
+          "time":1692117099,
+          "moderated":true,
+          "authors":[
+             {
+                "id":34502,
+                "name":"LucasMegaStriker"
+             }
+          ],
+          "submitter":null,
+          "rating":4.8571,
+          "size":1645427,
+          "downloads":780,
+          "download_url":"https:\/\/dl.smwcentral.net\/34843\/PowerGuyWorld.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"30 exit(s)",
+             "difficulty":"Standard: Hard",
+             "description":""
+          }
+       },
+       {
+          "id":34830,
+          "section":"smwhacks",
+          "name":"A Sticky Situation",
+          "time":1692049533,
+          "moderated":true,
+          "authors":[
+             {
+                "id":29850,
+                "name":"Coockie1173"
+             },
+             {
+                "id":55578,
+                "name":"Firstnamebutt"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":625123,
+          "downloads":341,
+          "download_url":"https:\/\/dl.smwcentral.net\/34830\/AStickySituation.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"16 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":34786,
+          "section":"smwhacks",
+          "name":"Red Hero's Legacy v1.1",
+          "time":1692047766,
+          "moderated":true,
+          "authors":[
+             {
+                "id":51347,
+                "name":"Jukeboxi_"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":949294,
+          "downloads":260,
+          "download_url":"https:\/\/dl.smwcentral.net\/34786\/redheroslegacy.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"17 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":34846,
+          "section":"smwhacks",
+          "name":"Super Fruits 'n Veggies World",
+          "time":1692046014,
+          "moderated":true,
+          "authors":[
+             {
+                "id":50670,
+                "name":"JeepySol"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":674006,
+          "downloads":422,
+          "download_url":"https:\/\/dl.smwcentral.net\/34846\/Super%20Fruits%20%27n%20Veggies%20World.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"21 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":34827,
+          "section":"smwhacks",
+          "name":"Agnosthesia",
+          "time":1691958091,
+          "moderated":true,
+          "authors":[
+             {
+                "id":50165,
+                "name":"LightAligns"
+             },
+             {
+                "id":49222,
+                "name":"Saela"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":6353424,
+          "downloads":500,
+          "download_url":"https:\/\/dl.smwcentral.net\/34827\/Agnosthesia.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"22 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":34383,
+          "section":"smwhacks",
+          "name":"Effortworld",
+          "time":1691928114,
+          "moderated":true,
+          "authors":[
+             {
+                "id":null,
+                "name":"JUMP Team"
+             }
+          ],
+          "submitter":null,
+          "rating":2.6667,
+          "size":738213,
+          "downloads":742,
+          "download_url":"https:\/\/dl.smwcentral.net\/34383\/effortworld.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"57 exit(s)",
+             "difficulty":"Standard: Very Hard",
+             "description":""
+          }
+       },
+       {
+          "id":34784,
+          "section":"smwhacks",
+          "name":"Cube´s Kaizo World 4",
+          "time":1691880183,
+          "moderated":true,
+          "authors":[
+             {
+                "id":44539,
+                "name":"Cube"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":700022,
+          "downloads":1252,
+          "download_url":"https:\/\/dl.smwcentral.net\/34784\/CubesKaizoWorld4_1.1.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"13 exit(s)",
+             "difficulty":"Kaizo: Intermediate",
+             "description":""
+          }
+       },
+       {
+          "id":34463,
+          "section":"smwhacks",
+          "name":"Chuck Must Die",
+          "time":1691697769,
+          "moderated":true,
+          "authors":[
+             {
+                "id":53039,
+                "name":"Flavvless"
+             }
+          ],
+          "submitter":null,
+          "rating":5,
+          "size":977865,
+          "downloads":310,
+          "download_url":"https:\/\/dl.smwcentral.net\/34463\/Chuck%20Must%20Die.zip",
+          "obsoleted_by":null,
+          "fields":{
+             "demo":"No",
+             "featured":"No",
+             "length":"19 exit(s)",
+             "difficulty":"Kaizo: Expert",
+             "description":""
+          }
+       }
+    ]
+ }
