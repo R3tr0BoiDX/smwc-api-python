@@ -24,7 +24,7 @@ class Game(Enum):
     SM64 = ("SM64", 86)
 
 
-class Featured(Enum):
+class FeaturedTool(Enum):
     NO = ("No", 73)
     YES = ("Yes", 74)
     ESSENTIAL = ("Essential", 75)
@@ -46,9 +46,6 @@ class Language(Enum):
     OTHER = ("Other", 103)
 
 
-
-
-
 def get_tools_param(
     name: Optional[str] = None,
     author: Optional[str] = None,
@@ -57,7 +54,7 @@ def get_tools_param(
     platform: Optional[List[Platform]] = None,
     game: Optional[List[Game]] = None,
     source_available: Optional[bool] = None,
-    featured: Optional[List[Featured]] = None,
+    featured: Optional[List[FeaturedTool]] = None,
     desc: Optional[str] = None,
 ):
     params = {}
@@ -109,6 +106,3 @@ def get_documents_param(
         params["desc"] = desc
 
     return form_params(params)
-
-
-

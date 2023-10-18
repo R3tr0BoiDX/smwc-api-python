@@ -1,4 +1,12 @@
+from urllib.parse import quote_plus
+
 from typing import List
+
+SAFE_CHARS = '"*-.<>_'
+
+
+def encode_value(value: str) -> str:
+    return quote_plus(value, safe=SAFE_CHARS)
 
 
 def form_params(params: dict) -> List[str]:
@@ -26,22 +34,30 @@ def check_list_type(values: list, class_or_tuple: type):
 
 
 def form_str_param(name: str, value: str) -> str:
-    return f"f%5B{name}%5D={value}"
+    return f"f%5B{name}%5D={encode_value(value)}"
+    # [name]=value
+    # example: [name]=value
 
 
 def form_bool_param(name: str, value: bool) -> str:
     return f"f%5B{name}%5D={1 if value else 0}"
+    # [name]=value
+    # example: [featured]=1
 
 
 def form_comma_list_param(name: str, values: List[str]) -> str:
     if len(values) == 0:
         return ""
 
-    param = f"f%5B{name}%5D={values[0]}"
+    param = f"f%5B{name}%5D={encode_value(values[0])}"
+    # [name]=value
+    # example: [games]=1
 
     if len(values) > 1:
         for value in values[1:]:
-            param += f"%2C+{value}"
+            param += f"%2C+{encode_value(value)}"
+            # ,+value
+            # example: ,+1,+2,+3
 
     return param
 
@@ -53,5 +69,7 @@ def form_list_param(name: str, values: List[int]) -> List[str]:
 
     for value in values:
         result.append(f"f%5B{name}%5D%5B%5D={value}")
+        # [name][]=value
+        # example: [games][]=1&[games][]=2&[games][]=3
 
     return result

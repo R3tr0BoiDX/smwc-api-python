@@ -74,7 +74,7 @@ class PaletteRowsUsed(Enum):
     ROWS_F = ("F", 195)
 
 
-class MusicType(Enum):
+class SMWMusicType(Enum):
     SONG = ("Song", 109)
     SOUNDTRACK = ("Soundtrack", 110)
     SOUND_EFFECT = ("Sound Effect", 111)
@@ -123,7 +123,7 @@ class PatchTool(Enum):
     XKAS_OR_ASAR = ("xkas or Asar", 3)
 
 
-class Featured(Enum):
+class FeaturedSMWPatches(Enum):
     NO = ("No", 70)
     YES = ("Yes", 71)
     ESSENTIAL = ("Essential", 72)
@@ -215,7 +215,7 @@ def get_smwmusic_param(
     name: Optional[str] = None,
     author: Optional[str] = None,
     tags: Optional[List[str]] = None,
-    music_type: Optional[List[MusicType]] = None,
+    music_type: Optional[List[SMWMusicType]] = None,
     sample_usage: Optional[List[SampleUsage]] = None,
     source: Optional[List[Source]] = None,
     featured: Optional[bool] = None,
@@ -330,7 +330,7 @@ def get_smwpatches_param(
     tool: Optional[List[PatchTool]] = None,
     requires_free_space: Optional[bool] = None,
     bug_fix: Optional[bool] = None,
-    featured: Optional[List[Featured]] = None,
+    featured: Optional[List[FeaturedSMWPatches]] = None,
     desc: Optional[str] = None,
 ):
     params = {}
