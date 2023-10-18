@@ -1,6 +1,7 @@
 from typing import List, Union
 from smwc_types import User
 from smwc_types.version import Version
+from smwc_types.fields import Field, SM64, SMW
 from smwc_types.section import Section
 
 
@@ -8,7 +9,7 @@ class File:
     """Any type of file on SMW Central"""
 
     id: int
-    section: Section
+    section: str
     name: str
     time: int
     moderated: bool
@@ -19,12 +20,17 @@ class File:
     downloads: int
     download_url: str
     obsoleted_by: Union[int, None]
-    fields: str
+    fields: Field
+
+    # additional values
     extended: bool = False
+    tags: List[str]
+    versions: List[Version]
+    images: List[str]
 
     def __init__(self, data: dict) -> None:
         self.id = int(data.get("id"))
-        self.section = Section(data.get("section"))
+        self.section = data.get("section")
         self.name = data.get("name")
         self.time = int(data.get("time"))
         self.moderated = bool(data.get("moderated"))
@@ -39,7 +45,11 @@ class File:
         self.obsoleted_by = (
             int(data.get("obsoleted_by")) if data.get("obsoleted_by") else None
         )
-        self.fields = data.get("fields")
+
+        if self.section == Section.SMW.HACKS:
+            self.fields = SMW.Hack(data.get("fields"))
+        elif self.section == Section.SM64.HACKS:
+            self.fields = SM64.Hack(data.get("fields"))
 
     def add_additional_values(self, data: dict) -> None:
         self.extended = True

@@ -4,7 +4,6 @@ from typing import List, Tuple, Union
 import requests
 
 from smwc_types import Pagination, SortBy, Token, File
-from smwc_types.section import Section
 
 BASE_URL = "https://www.smwcentral.net/ajax.php"
 TIMEOUT = 10
@@ -32,7 +31,7 @@ def get_token() -> str:
 
 
 def get_section_list(
-    section: Section,
+    section: str,
     moderated: bool = True,
     page_number: int = 0,
     sort: Union[SortBy, None] = None,
@@ -41,7 +40,7 @@ def get_section_list(
 ) -> Pagination:
     params = {
         "a": Endpoints.SECTION_LIST.value,
-        "s": section.value,
+        "s": section,
         "u": 0 if moderated else 1,
     }
 

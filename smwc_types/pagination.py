@@ -1,8 +1,6 @@
 from typing import List, Union
 
 from smwc_types import File, Token, User
-from smwc_types.section import Section
-from smwc_types.files import SMWFile, YIFile, SM64File
 
 
 class Pagination:
@@ -32,11 +30,4 @@ class Pagination:
 
         self.data = []
         for item in data.get("data"):
-            if item.get("section") == Section.smw.value:
-                self.data.append(SMWFile(item))
-            elif item.get("section") == Section.yi.value:
-                self.data.append(YIFile(item))
-            elif item.get("section") == Section.sm64.value:
-                self.data.append(SM64File(item))
-            else:
-                self.data.append(File(item))
+            self.data.append(File(item))
