@@ -14,6 +14,8 @@ source available
 featured
 description
 
++ done
+
 ### documents
 
 name
@@ -25,11 +27,14 @@ type
 language
 description
 
++ done
+
 ## smw
 
 ### hacks
 
 see smwc-browser
++ done
 
 ### sram
 
