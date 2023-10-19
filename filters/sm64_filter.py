@@ -1,7 +1,7 @@
 from typing import List, Optional
 from enum import Enum
 
-from ._generator import form_params
+from ._generator import ParamSet, ParamType
 
 
 class Difficulty(Enum):
@@ -64,22 +64,22 @@ def get_sm64hacks_param(
     difficulty: Optional[List[Difficulty]] = None,
     demo: Optional[bool] = None,
     desc: Optional[str] = None,
-):
-    params = {}
+) -> ParamSet:
+    params = []
     if name is not None:
-        params["name"] = name
+        params.append(("name", name, ParamType.STR))
     if author is not None:
-        params["author"] = author
+        params.append(("author", author, ParamType.STR))
     if tags is not None:
-        params["tags"] = tags
+        params.append(("tags", tags, ParamType.CSV))
     if difficulty is not None:
-        params["difficulty"] = [d.value[1] for d in difficulty]
+        params.append(("difficulty", [d.value[1] for d in difficulty], ParamType.LIST))
     if demo is not None:
-        params["demo"] = demo
+        params.append(("demo", demo, ParamType.BOOL))
     if desc is not None:
-        params["desc"] = desc
+        params.append(("description", desc, ParamType.STR))
 
-    return form_params(params)
+    return ParamSet(params)
 
 
 def get_sm64textures_param(
@@ -88,20 +88,22 @@ def get_sm64textures_param(
     tags: Optional[List[str]] = None,
     textures_type: Optional[List[TexturesType]] = None,
     desc: Optional[str] = None,
-):
-    params = {}
+) -> ParamSet:
+    params = []
     if name is not None:
-        params["name"] = name
+        params.append(("name", name, ParamType.STR))
     if author is not None:
-        params["author"] = author
+        params.append(("author", author, ParamType.STR))
     if tags is not None:
-        params["tags"] = tags
+        params.append(("tags", tags, ParamType.CSV))
     if textures_type is not None:
-        params["textures_type"] = [tt.value[1] for tt in textures_type]
+        params.append(
+            ("type", [t.value[1] for t in textures_type], ParamType.LIST)
+        )
     if desc is not None:
-        params["desc"] = desc
+        params.append(("description", desc, ParamType.STR))
 
-    return form_params(params)
+    return ParamSet(params)
 
 
 def get_sm64music_param(
@@ -110,17 +112,17 @@ def get_sm64music_param(
     tags: Optional[List[str]] = None,
     nlist: Optional[List[Nlist]] = None,
     desc: Optional[str] = None,
-):
-    params = {}
+) -> ParamSet:
+    params = []
     if name is not None:
-        params["name"] = name
+        params.append(("name", name, ParamType.STR))
     if author is not None:
-        params["author"] = author
+        params.append(("author", author, ParamType.STR))
     if tags is not None:
-        params["tags"] = tags
+        params.append(("tags", tags, ParamType.CSV))
     if nlist is not None:
-        params["nlist"] = [n.value[1] for n in nlist]
+        params.append(("nlist", [n.value[1] for n in nlist], ParamType.LIST))
     if desc is not None:
-        params["desc"] = desc
+        params.append(("description", desc, ParamType.STR))
 
-    return form_params(params)
+    return ParamSet(params)

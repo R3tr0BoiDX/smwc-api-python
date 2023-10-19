@@ -1,5 +1,3 @@
-from ._generator import form_params
-
 from .generic_filter import (
     DocumentType,
     FeaturedTool,

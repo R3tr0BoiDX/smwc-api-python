@@ -1,34 +1,53 @@
+from enum import Enum
+from typing import List
 from urllib.parse import quote_plus
 
-from typing import List
+from api import BASE_URL
 
 SAFE_CHARS = '"*-.<>_'
 
-# todo: maybe dont use f%5Bname%5D, instead use [name] and encode the brackets...
-# todo: ...and return a dict and let request form the url
 
-def form_params(params: dict) -> List[str]:
+class ParamType(Enum):
+    STR = 1
+    BOOL = 2
+    LIST = 3
+    CSV = 4
+
+
+class ParamSet:
+    # data structure: list[(name, value, type)]
+    def __init__(self, params: dict = None):
+        self.params = params or {}
+
+    def __str__(self):
+        return "&".join(form_params(self.params))
+
+
+def construct_url(params: str, base_url: str = BASE_URL) -> str:
+    full_url = f"{base_url}?{params}"
+    return full_url
+
+
+def form_params(params: list) -> List[str]:
     if len(params) == 0:
         return ""
 
     result = []
-    for key, value in params.items():
-        if isinstance(value, bool):
+    for param in params:
+        key, value, param_type = param
+
+        if param_type == ParamType.BOOL:
             result.append(form_bool_param(key, value))
-        elif isinstance(value, str):
+        elif param_type == ParamType.STR:
             result.append(form_str_param(key, value))
-        elif isinstance(value, list) and check_list_type(value, int):
+        elif param_type == ParamType.LIST:
             result.append(form_list_param(key, value))
-        elif isinstance(value, list) and check_list_type(value, str):
-            result.append(form_comma_list_param(key, value))
+        elif param_type == ParamType.CSV:
+            result.append(form_csv_param(key, value))
         else:
-            raise TypeError(f"Unsupported type for key '{key}': {type(value)}")
+            raise TypeError(f"Unsupported type for key '{key}': {param_type}")
 
     return flatten_list(result)
-
-
-def check_list_type(values: list, class_or_tuple: type):
-    return all(isinstance(item, class_or_tuple) for item in values)
 
 
 def form_str_param(name: str, value: str) -> str:
@@ -43,21 +62,15 @@ def form_bool_param(name: str, value: bool) -> str:
     # example: [featured]=1
 
 
-def form_comma_list_param(name: str, values: List[str]) -> str:
+def form_csv_param(name: str, values: List[str]) -> str:
     if len(values) == 0:
         return ""
 
-    param = f"f%5B{name}%5D={encode_value(values[0])}"
-    # [name]=value
-    # example: [games]=1
-
-    if len(values) > 1:
-        for value in values[1:]:
-            param += f"%2C+{encode_value(value)}"
-            # ,+value
-            # example: ,+1,+2,+3
-
+    encoded_values = [encode_value(value) for value in values]
+    param = f"f%5B{name}%5D={'%2C+'.join(encoded_values)}"
     return param
+    # [name]=value1,+value2,+value3
+    # example: [games]=1,+2,+3
 
 
 def form_list_param(name: str, values: List[int]) -> List[str]:
@@ -83,5 +96,9 @@ def flatten_list(nested_list):
     return flat_list
 
 
-def encode_value(value: str) -> str:
-    return quote_plus(value, safe=SAFE_CHARS)
+def encode_value(value: str, additional_safe: str = "") -> str:
+    return quote_plus(value, safe=SAFE_CHARS + additional_safe)
+
+
+def check_list_type(values: list, class_or_tuple: type):
+    return all(isinstance(item, class_or_tuple) for item in values)

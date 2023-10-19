@@ -55,8 +55,9 @@ def get_section_list(
 
     if isinstance(filters, list):
         for f in filters:
-            print(f)  # todo: import from smwc-browser
+            print(f)
 
+    # todo: construct url on our own
     response = requests.get(BASE_URL, params=params, timeout=TIMEOUT)
 
     if response.status_code == 200:
