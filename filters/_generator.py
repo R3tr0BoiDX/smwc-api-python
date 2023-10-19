@@ -4,10 +4,8 @@ from typing import List
 
 SAFE_CHARS = '"*-.<>_'
 
-
-def encode_value(value: str) -> str:
-    return quote_plus(value, safe=SAFE_CHARS)
-
+# todo: maybe dont use f%5Bname%5D, instead use [name] and encode the brackets...
+# todo: ...and return a dict and let request form the url
 
 def form_params(params: dict) -> List[str]:
     if len(params) == 0:
@@ -26,7 +24,7 @@ def form_params(params: dict) -> List[str]:
         else:
             raise TypeError(f"Unsupported type for key '{key}': {type(value)}")
 
-    return result
+    return flatten_list(result)
 
 
 def check_list_type(values: list, class_or_tuple: type):
@@ -73,3 +71,17 @@ def form_list_param(name: str, values: List[int]) -> List[str]:
         # example: [games][]=1&[games][]=2&[games][]=3
 
     return result
+
+
+def flatten_list(nested_list):
+    flat_list = []
+    for item in nested_list:
+        if isinstance(item, list):
+            flat_list.extend(flatten_list(item))
+        else:
+            flat_list.append(item)
+    return flat_list
+
+
+def encode_value(value: str) -> str:
+    return quote_plus(value, safe=SAFE_CHARS)

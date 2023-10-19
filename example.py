@@ -10,7 +10,7 @@ if __name__ == "__main__":
         print(item.name)
 
     filter_param = SM64.get_sm64hacks_param(
-        difficulty=[Difficulty.HARD],
+        difficulty=[Difficulty.HARD, Difficulty.INTERMEDIATE],
         demo=True,
         tags=["multiplayer", "demo"],
         name="Super Mario 64: Ocarina of Time",
