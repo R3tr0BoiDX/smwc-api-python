@@ -1,12 +1,11 @@
 from enum import Enum
-from typing import List, Tuple, Union
+from typing import Optional
 
 import requests
 
-from smwc_types import Pagination, SortBy, Token, File
-
-BASE_URL = "https://www.smwcentral.net/ajax.php"
-TIMEOUT = 10
+from constants import BASE_URL, TIMEOUT
+from smwc_filters import ParamSet
+from smwc_types import File, Pagination, SortBy, Token
 
 
 class Endpoints(Enum):
@@ -18,6 +17,7 @@ class Endpoints(Enum):
 def get_token() -> str:
     raise NotImplementedError("Not really any use for this yet, as theres no auth.")
 
+    # pylint: disable=unreachable
     response = requests.get(
         BASE_URL, params={"a": Endpoints.TOKEN.value}, timeout=TIMEOUT
     )
@@ -34,9 +34,9 @@ def get_section_list(
     section: str,
     moderated: bool = True,
     page_number: int = 0,
-    sort: Union[SortBy, None] = None,
-    asc: Union[bool, None] = None,
-    filters: Union[List[Tuple[str, str]], None] = None,
+    sort: Optional[SortBy] = None,
+    asc: Optional[bool] = None,
+    filters: Optional[ParamSet] = None,
 ) -> Pagination:
     params = {
         "a": Endpoints.SECTION_LIST.value,
@@ -53,12 +53,12 @@ def get_section_list(
     if isinstance(asc, bool):
         params["d"] = "asc" if asc else "desc"
 
-    if isinstance(filters, list):
-        for f in filters:
-            print(f)
+    if isinstance(filters, ParamSet):
+        params[str(filters)] = None
 
-    # todo: construct url on our own
-    response = requests.get(BASE_URL, params=params, timeout=TIMEOUT)
+    request_params = _construct_params(params)
+
+    response = requests.get(BASE_URL, params=request_params, timeout=TIMEOUT)
 
     if response.status_code == 200:
         return Pagination(response.json())
@@ -86,3 +86,7 @@ def get_file(file_id: int) -> str:
     raise requests.exceptions.HTTPError(
         f"Request failed with status code {response.status_code}"
     )
+
+
+def _construct_params(params: dict) -> str:
+    return "&".join([k if v is None else f"{k}={v}" for k, v in params.items()])

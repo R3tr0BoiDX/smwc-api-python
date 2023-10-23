@@ -1,7 +1,7 @@
 from typing import List, Optional
 from enum import Enum
 
-from ._generator import form_params
+from ._generator import ParamSet, ParamField
 
 
 class YIMusicType(Enum):
@@ -11,12 +11,12 @@ class YIMusicType(Enum):
     MISC = ("Misc", 147)
 
 
-class FeaturedYIPatches(Enum):
+class YIFeaturedPatches(Enum):
     NO = ("No", 136)
     YES = ("Yes", 137)
 
 
-class SPASMType(Enum):
+class YISPASMType(Enum):
     INIT = ("Init", 153)
     MAIN = ("Main", 154)
 
@@ -27,20 +27,20 @@ def get_yihacks_param(
     tags: Optional[List[str]] = None,
     demo: Optional[bool] = None,
     desc: Optional[str] = None,
-):
-    params = {}
+) -> ParamSet:
+    params = []
     if name is not None:
-        params["name"] = name
+        params.append((name, ParamField.NAME))
     if author is not None:
-        params["author"] = author
+        params.append((author, ParamField.AUTHOR))
     if tags is not None:
-        params["tags"] = tags
+        params.append((tags, ParamField.TAGS))
     if demo is not None:
-        params["demo"] = demo
+        params.append((demo, ParamField.DEMO))
     if desc is not None:
-        params["desc"] = desc
+        params.append((desc, ParamField.DESCRIPTION))
 
-    return form_params(params)
+    return ParamSet(params)
 
 
 def get_yimusic_param(
@@ -52,26 +52,26 @@ def get_yimusic_param(
     custom: Optional[bool] = None,
     featured: Optional[bool] = None,
     desc: Optional[str] = None,
-):
-    params = {}
+) -> ParamSet:
+    params = []
     if name is not None:
-        params["name"] = name
+        params.append((name, ParamField.NAME))
     if author is not None:
-        params["author"] = author
+        params.append((author, ParamField.AUTHOR))
     if tags is not None:
-        params["tags"] = tags
+        params.append((tags, ParamField.TAGS))
     if music_type is not None:
-        params["music_type"] = [m.value[1] for m in music_type]
+        params.append((music_type, ParamField.TYPE))
     if sampled is not None:
-        params["sampled"] = sampled
+        params.append((sampled, ParamField.SAMPLED))
     if custom is not None:
-        params["custom"] = custom
+        params.append((custom, ParamField.CUSTOM))
     if featured is not None:
-        params["featured"] = featured
+        params.append((featured, ParamField.FEATURED))
     if desc is not None:
-        params["desc"] = desc
+        params.append((desc, ParamField.DESCRIPTION))
 
-    return form_params(params)
+    return ParamSet(params)
 
 
 def get_yipatches_param(
@@ -80,51 +80,51 @@ def get_yipatches_param(
     tags: Optional[List[str]] = None,
     requires_free_space: Optional[bool] = None,
     bug_fix: Optional[bool] = None,
-    featured: Optional[List[FeaturedYIPatches]] = None,
+    featured: Optional[List[YIFeaturedPatches]] = None,
     desc: Optional[str] = None,
-):
-    params = {}
+) -> ParamSet:
+    params = []
     if name is not None:
-        params["name"] = name
+        params.append((name, ParamField.NAME))
     if author is not None:
-        params["author"] = author
+        params.append((author, ParamField.AUTHOR))
     if tags is not None:
-        params["tags"] = tags
+        params.append((tags, ParamField.TAGS))
     if requires_free_space is not None:
-        params["requires_free_space"] = requires_free_space
+        params.append((requires_free_space, ParamField.FREESPACE))
     if bug_fix is not None:
-        params["bug_fix"] = bug_fix
+        params.append((bug_fix, ParamField.BUGFIX))
     if featured is not None:
-        params["featured"] = [f.value[1] for f in featured]
+        params.append((featured, ParamField.FEATURED_LIST))
     if desc is not None:
-        params["desc"] = desc
+        params.append((desc, ParamField.DESCRIPTION))
 
-    return form_params(params)
+    return ParamSet(params)
 
 
 def get_spasm_param(
     name: Optional[str] = None,
     author: Optional[str] = None,
     tags: Optional[List[str]] = None,
-    spasm_type: Optional[List[SPASMType]] = None,
+    spasm_type: Optional[List[YISPASMType]] = None,
     includes_hijack: Optional[bool] = None,
     featured: Optional[bool] = None,
     desc: Optional[str] = None,
-):
-    params = {}
+) -> ParamSet:
+    params = []
     if name is not None:
-        params["name"] = name
+        params.append((name, ParamField.NAME))
     if author is not None:
-        params["author"] = author
+        params.append((author, ParamField.AUTHOR))
     if tags is not None:
-        params["tags"] = tags
+        params.append((tags, ParamField.TAGS))
     if spasm_type is not None:
-        params["spasm_type"] = [s.value[1] for s in spasm_type]
+        params.append((spasm_type, ParamField.TYPE))
     if includes_hijack is not None:
-        params["includes_hijack"] = includes_hijack
+        params.append((includes_hijack, ParamField.INCLUDESHIJACK))
     if featured is not None:
-        params["featured"] = featured
+        params.append((featured, ParamField.FEATURED))
     if desc is not None:
-        params["desc"] = desc
+        params.append((desc, ParamField.DESCRIPTION))
 
-    return form_params(params)
+    return ParamSet(params)

@@ -1,22 +1,22 @@
 from typing import List, Optional
 from enum import Enum
 
-from ._generator import ParamSet, ParamType
+from ._generator import ParamSet, ParamField
 
 
-class Difficulty(Enum):
+class SM64Difficulty(Enum):
     EASY = ("Easy", 148)
     INTERMEDIATE = ("Intermediate", 149)
     HARD = ("Hard", 150)
     KAIZO = ("Kaizo", 151)
 
 
-class TexturesType(Enum):
+class SM64TexturesType(Enum):
     ORIGINAL = ("Original", 39)
     RIPPED = ("Ripped", 40)
 
 
-class Nlist(Enum):
+class SM64Nlist(Enum):
     NLST0 = ("NLST 0 (SFX)", 1)
     NLST1 = ("NLST 1 (SFX, Footsteps)", 2)
     NLST2 = ("NLST 2 (SFX, Water)", 3)
@@ -61,23 +61,23 @@ def get_sm64hacks_param(
     name: Optional[str] = None,
     author: Optional[str] = None,
     tags: Optional[List[str]] = None,
-    difficulty: Optional[List[Difficulty]] = None,
+    difficulty: Optional[List[SM64Difficulty]] = None,
     demo: Optional[bool] = None,
     desc: Optional[str] = None,
 ) -> ParamSet:
     params = []
     if name is not None:
-        params.append(("name", name, ParamType.STR))
+        params.append((name, ParamField.NAME))
     if author is not None:
-        params.append(("author", author, ParamType.STR))
+        params.append((author, ParamField.AUTHOR))
     if tags is not None:
-        params.append(("tags", tags, ParamType.CSV))
+        params.append((tags, ParamField.TAGS))
     if difficulty is not None:
-        params.append(("difficulty", [d.value[1] for d in difficulty], ParamType.LIST))
+        params.append((difficulty, ParamField.DIFFICULTY))
     if demo is not None:
-        params.append(("demo", demo, ParamType.BOOL))
+        params.append((demo, ParamField.DEMO))
     if desc is not None:
-        params.append(("description", desc, ParamType.STR))
+        params.append((desc, ParamField.DESCRIPTION))
 
     return ParamSet(params)
 
@@ -86,22 +86,20 @@ def get_sm64textures_param(
     name: Optional[str] = None,
     author: Optional[str] = None,
     tags: Optional[List[str]] = None,
-    textures_type: Optional[List[TexturesType]] = None,
+    textures_type: Optional[List[SM64TexturesType]] = None,
     desc: Optional[str] = None,
 ) -> ParamSet:
     params = []
     if name is not None:
-        params.append(("name", name, ParamType.STR))
+        params.append((name, ParamField.NAME))
     if author is not None:
-        params.append(("author", author, ParamType.STR))
+        params.append((author, ParamField.AUTHOR))
     if tags is not None:
-        params.append(("tags", tags, ParamType.CSV))
+        params.append((tags, ParamField.TAGS))
     if textures_type is not None:
-        params.append(
-            ("type", [t.value[1] for t in textures_type], ParamType.LIST)
-        )
+        params.append((textures_type, ParamField.TYPE))
     if desc is not None:
-        params.append(("description", desc, ParamType.STR))
+        params.append((desc, ParamField.DESCRIPTION))
 
     return ParamSet(params)
 
@@ -110,19 +108,19 @@ def get_sm64music_param(
     name: Optional[str] = None,
     author: Optional[str] = None,
     tags: Optional[List[str]] = None,
-    nlist: Optional[List[Nlist]] = None,
+    nlist: Optional[List[SM64Nlist]] = None,
     desc: Optional[str] = None,
 ) -> ParamSet:
     params = []
     if name is not None:
-        params.append(("name", name, ParamType.STR))
+        params.append((name, ParamField.NAME))
     if author is not None:
-        params.append(("author", author, ParamType.STR))
+        params.append((author, ParamField.AUTHOR))
     if tags is not None:
-        params.append(("tags", tags, ParamType.CSV))
+        params.append((tags, ParamField.TAGS))
     if nlist is not None:
-        params.append(("nlist", [n.value[1] for n in nlist], ParamType.LIST))
+        params.append((nlist, ParamField.NLIST))
     if desc is not None:
-        params.append(("description", desc, ParamType.STR))
+        params.append((desc, ParamField.DESCRIPTION))
 
     return ParamSet(params)

@@ -1,7 +1,7 @@
 from typing import List, Optional
 from enum import Enum
 
-from ._generator import ParamSet, ParamType
+from ._generator import ParamSet, ParamField
 
 
 class OperatingSystem(Enum):
@@ -56,26 +56,26 @@ def get_tools_param(
     source_available: Optional[bool] = None,
     featured: Optional[List[FeaturedTool]] = None,
     desc: Optional[str] = None,
-):
+) -> ParamSet:
     params = []
     if name is not None:
-        params.append(("name", name, ParamType.STR))
+        params.append((name, ParamField.NAME))
     if author is not None:
-        params.append(("author", author, ParamType.STR))
+        params.append((author, ParamField.AUTHOR))
     if tags is not None:
-        params.append(("tags", tags, ParamType.CSV))
+        params.append((tags, ParamField.TAGS))
     if os is not None:
-        params.append(("os", [o.value[1] for o in os], ParamType.LIST))
+        params.append((os, ParamField.OS))
     if platform is not None:
-        params.append(("platforms", [p.value[1] for p in platform], ParamType.LIST))
+        params.append((platform, ParamField.PLATFORMS))
     if game is not None:
-        params.append(("games", [g.value[1] for g in game], ParamType.LIST))
+        params.append((game, ParamField.GAMES))
     if source_available is not None:
-        params.append(("source", source_available, ParamType.BOOL))
+        params.append((source_available, ParamField.SOURCE))
     if featured is not None:
-        params.append(("featured", [f.value[1] for f in featured], ParamType.LIST))
+        params.append((featured, ParamField.FEATURED_LIST))
     if desc is not None:
-        params.append(("description", desc, ParamType.STR))
+        params.append((desc, ParamField.DESCRIPTION))
 
     return ParamSet(params)
 
@@ -89,23 +89,23 @@ def get_documents_param(
     doc_type: Optional[List[DocumentType]] = None,
     language: Optional[List[Language]] = None,
     desc: Optional[str] = None,
-):
+) -> ParamSet:
     params = []
     if name is not None:
-        params.append(("name", name, ParamType.STR))
+        params.append((name, ParamField.NAME))
     if author is not None:
-        params.append(("author", author, ParamType.STR))
+        params.append((author, ParamField.AUTHOR))
     if tags is not None:
-        params.append(("tags", tags, ParamType.CSV))
+        params.append((tags, ParamField.TAGS))
     if platform is not None:
-        params.append(("platforms", [p.value[1] for p in platform], ParamType.LIST))
+        params.append((platform, ParamField.PLATFORMS))
     if game is not None:
-        params.append(("games", [g.value[1] for g in game], ParamType.LIST))
+        params.append((game, ParamField.GAMES))
     if doc_type is not None:
-        params.append(("type", [t.value[1] for t in doc_type], ParamType.LIST))
+        params.append((doc_type, ParamField.TYPE))
     if language is not None:
-        params.append(("language", [lang.value[1] for lang in language], ParamType.LIST))
+        params.append((language, ParamField.LANGUAGE))
     if desc is not None:
-        params.append(("description", desc, ParamType.STR))
+        params.append((desc, ParamField.DESCRIPTION))
 
     return ParamSet(params)

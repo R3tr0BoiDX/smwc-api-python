@@ -1,16 +1,15 @@
-from filters import SM64, Difficulty
+from api import get_section_list
+from smwc_filters import SMW, SMWDifficulty
+from smwc_types.section import Section
 
 if __name__ == "__main__":
-    filter_param = SM64.get_sm64hacks_param(
-        name="Super Mario 64: Ocarina of Time",
-        author="Kaze Emanuar",
-        tags=["multiplayer", "demo"],
-        difficulty=[Difficulty.INTERMEDIATE, Difficulty.HARD],
-        demo=True,
-        desc="This is a demo description",
-    )
+    # Create filter parameter for the SMW Hacks section
+    filter_param = SMW.get_smwhacks_param(name="Mario", difficulty=SMWDifficulty.NORMAL)
 
-    print(filter_param)
+    # Get results from SMW Hacks section
+    results = get_section_list(Section.SMW.HACKS, filters=filter_param)
 
-    # todo: finish checking filter fields names (SMW, YI)
-    # todo: finish transform from list to ParamSet (Generic, SMW, YI)
+    # Print results
+    print(results.total)
+    for file in results.data:
+        print(file.name)

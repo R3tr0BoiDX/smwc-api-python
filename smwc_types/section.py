@@ -1,3 +1,14 @@
+"""
+Author: R3tr0BoiDX
+
+Date: 2023-10-18
+
+Description: This module contains the all the sections available on SMWC.
+
+TODO: I'm really not a fan of this class structure. Show me a better way.
+"""
+
+
 class Section:
     class SMW:
         HACKS = "smwhacks"

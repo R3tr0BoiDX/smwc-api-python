@@ -1,10 +1,10 @@
 from typing import List, Optional
 from enum import Enum
 
-from ._generator import form_params
+from ._generator import ParamSet, ParamField
 
 
-class HackType(Enum):
+class SMWDifficulty(Enum):
     EASY = ("Standard: Easy", 104)
     NORMAL = ("Standard: Normal", 105)
     HARD = ("Standard: Hard", 106)
@@ -17,12 +17,12 @@ class HackType(Enum):
     MISC_TROLL = ("Misc.: Troll", 161)
 
 
-class GraphicsType(Enum):
+class SMWGraphicsType(Enum):
     ORIGINAL = ("Original", 52)
     RIPPED = ("Ripped", 53)
 
 
-class Purpose(Enum):
+class SMWPurpose(Enum):
     BACKGROUND = ("Background", 54)
     FOREGROUND = ("Foreground", 55)
     SPRITE = ("Sprite", 56)
@@ -34,7 +34,7 @@ class Purpose(Enum):
     GRAPHICS_HACK = ("Graphics Hack", 108)
 
 
-class SlotsUsed(Enum):
+class SMWSlotsUsed(Enum):
     BG1 = ("BG1", 162)
     BG2 = ("BG2", 163)
     BG3 = ("BG3", 164)
@@ -55,7 +55,7 @@ class SlotsUsed(Enum):
     AN2 = ("AN2", 179)
 
 
-class PaletteRowsUsed(Enum):
+class SMWPaletteRowsUsed(Enum):
     ROWS_0 = ("0", 180)
     ROWS_1 = ("1", 181)
     ROWS_2 = ("2", 182)
@@ -81,24 +81,24 @@ class SMWMusicType(Enum):
     MISC = ("Misc.", 112)
 
 
-class SampleUsage(Enum):
+class SMWSampleUsage(Enum):
     NONE = ("None", 155)
     LIGHT = ("Light", 156)
     MANY = ("Many", 157)
 
 
-class Source(Enum):
+class SMWSource(Enum):
     PORT = ("Port", 158)
     REMIX = ("Remix", 159)
     ORIGINAL = ("Original", 160)
 
 
-class Collection(Enum):
+class SMWCollection(Enum):
     COMPILATION = ("Compilation", 134)
     SINGLE = ("Single", 135)
 
 
-class SpritesTool(Enum):
+class SMWSpritesTool(Enum):
     PIXI = ("PIXI", 142)
     GIEPY = ("GIEPY", 143)
     ROMIS_SPRITE_TOOL = ("Romi's Spritetool", 41)
@@ -106,7 +106,7 @@ class SpritesTool(Enum):
     OTHER = ("Other", 45)
 
 
-class SpriteType(Enum):
+class SMWSpriteType(Enum):
     STANDARD = ("Standard", 46)
     SHOOTER = ("Shooter", 47)
     GENERATOR = ("Generator", 48)
@@ -117,19 +117,19 @@ class SpriteType(Enum):
     OTHER = ("Other", 51)
 
 
-class PatchTool(Enum):
+class SMWPatchTool(Enum):
     XKAS = ("xkas", 1)
     ASAR = ("Asar", 2)
     XKAS_OR_ASAR = ("xkas or Asar", 3)
 
 
-class FeaturedSMWPatches(Enum):
+class SMWFeaturedPatches(Enum):
     NO = ("No", 70)
     YES = ("Yes", 71)
     ESSENTIAL = ("Essential", 72)
 
 
-class UberASMType(Enum):
+class SMWUberASMType(Enum):
     LEVEL = ("Level", 138)
     OVERWORLD = ("Overworld", 139)
     GAME_MODE = ("Game Mode", 140)
@@ -142,73 +142,73 @@ def get_smwhacks_param(
     tags: Optional[List[str]] = None,
     demo: Optional[bool] = None,
     featured: Optional[bool] = None,
-    hack_type: Optional[List[HackType]] = None,
+    difficulty: Optional[List[SMWDifficulty]] = None,
     desc: Optional[str] = None,
-):
-    params = {}
+) -> ParamSet:
+    params = []
     if name is not None:
-        params["name"] = name
+        params.append((name, ParamField.NAME))
     if author is not None:
-        params["author"] = author
+        params.append((author, ParamField.AUTHOR))
     if tags is not None:
-        params["tags"] = tags
+        params.append((tags, ParamField.TAGS))
     if demo is not None:
-        params["demo"] = demo
+        params.append((demo, ParamField.DEMO))
     if featured is not None:
-        params["featured"] = featured
-    if hack_type is not None:
-        params["difficulty"] = [h.value[1] for h in hack_type]
+        params.append((featured, ParamField.FEATURED))
+    if difficulty is not None:
+        params.append((difficulty, ParamField.DIFFICULTY))
     if desc is not None:
-        params["desc"] = desc
+        params.append((desc, ParamField.DESCRIPTION))
 
-    return form_params(params)
+    return ParamSet(params)
 
 
 def get_sramdatabase_param(
     name: Optional[str] = None,
     author: Optional[str] = None,
     tags: Optional[List[str]] = None,
-):
-    params = {}
+) -> ParamSet:
+    params = []
     if name is not None:
-        params["name"] = name
+        params.append((name, ParamField.NAME))
     if author is not None:
-        params["author"] = author
+        params.append((author, ParamField.AUTHOR))
     if tags is not None:
-        params["tags"] = tags
+        params.append((tags, ParamField.TAGS))
 
-    return form_params(params)
+    return ParamSet(params)
 
 
 def get_smwgraphics_param(
     name: Optional[str] = None,
     author: Optional[str] = None,
     tags: Optional[List[str]] = None,
-    graphics_type: Optional[List[GraphicsType]] = None,
-    purpose: Optional[List[Purpose]] = None,
-    slots_used: Optional[List[SlotsUsed]] = None,
-    palette_rows_used: Optional[List[PaletteRowsUsed]] = None,
+    graphics_type: Optional[List[SMWGraphicsType]] = None,
+    purpose: Optional[List[SMWPurpose]] = None,
+    slots_used: Optional[List[SMWSlotsUsed]] = None,
+    palette_rows_used: Optional[List[SMWPaletteRowsUsed]] = None,
     desc: Optional[str] = None,
-):
-    params = {}
+) -> ParamSet:
+    params = []
     if name is not None:
-        params["name"] = name
+        params.append((name, ParamField.NAME))
     if author is not None:
-        params["author"] = author
+        params.append((author, ParamField.AUTHOR))
     if tags is not None:
-        params["tags"] = tags
+        params.append((tags, ParamField.TAGS))
     if graphics_type is not None:
-        params["type"] = [g.value[1] for g in graphics_type]
+        params.append((graphics_type, ParamField.TYPE))
     if purpose is not None:
-        params["purpose"] = [p.value[1] for p in purpose]
+        params.append((purpose, ParamField.PURPOSE))
     if slots_used is not None:
-        params["slots"] = [s.value[1] for s in slots_used]
+        params.append((slots_used, ParamField.SLOTS))
     if palette_rows_used is not None:
-        params["palette"] = [p.value[1] for p in palette_rows_used]
+        params.append((palette_rows_used, ParamField.PALETTES))
     if desc is not None:
-        params["desc"] = desc
+        params.append((desc, ParamField.DESCRIPTION))
 
-    return form_params(params)
+    return ParamSet(params)
 
 
 def get_smwmusic_param(
@@ -216,52 +216,52 @@ def get_smwmusic_param(
     author: Optional[str] = None,
     tags: Optional[List[str]] = None,
     music_type: Optional[List[SMWMusicType]] = None,
-    sample_usage: Optional[List[SampleUsage]] = None,
-    source: Optional[List[Source]] = None,
+    sample_usage: Optional[List[SMWSampleUsage]] = None,
+    source: Optional[List[SMWSource]] = None,
     featured: Optional[bool] = None,
     desc: Optional[str] = None,
-):
-    params = {}
+) -> ParamSet:
+    params = []
     if name is not None:
-        params["name"] = name
+        params.append((name, ParamField.NAME))
     if author is not None:
-        params["author"] = author
+        params.append((author, ParamField.AUTHOR))
     if tags is not None:
-        params["tags"] = tags
+        params.append((tags, ParamField.TAGS))
     if music_type is not None:
-        params["type"] = [m.value[1] for m in music_type]
+        params.append((music_type, ParamField.TYPE))
     if sample_usage is not None:
-        params["sample"] = [s.value[1] for s in sample_usage]
+        params.append((sample_usage, ParamField.SAMPLED))
     if source is not None:
-        params["source"] = [s.value[1] for s in source]
+        params.append((source, ParamField.SOURCE_LIST))
     if featured is not None:
-        params["featured"] = featured
+        params.append((featured, ParamField.FEATURED))
     if desc is not None:
-        params["desc"] = desc
+        params.append((desc, ParamField.DESCRIPTION))
 
-    return form_params(params)
+    return ParamSet(params)
 
 
 def get_brrsamples_param(
     name: Optional[str] = None,
     author: Optional[str] = None,
     tags: Optional[List[str]] = None,
-    collection: Optional[List[Collection]] = None,
+    collection: Optional[List[SMWCollection]] = None,
     desc: Optional[str] = None,
-):
-    params = {}
+) -> ParamSet:
+    params = []
     if name is not None:
-        params["name"] = name
+        params.append((name, ParamField.NAME))
     if author is not None:
-        params["author"] = author
+        params.append((author, ParamField.AUTHOR))
     if tags is not None:
-        params["tags"] = tags
+        params.append((tags, ParamField.TAGS))
     if collection is not None:
-        params["collection"] = [c.value[1] for c in collection]
+        params.append((collection, ParamField.COLLECTION))
     if desc is not None:
-        params["desc"] = desc
+        params.append((desc, ParamField.DESCRIPTION))
 
-    return form_params(params)
+    return ParamSet(params)
 
 
 def get_smwblocks_param(
@@ -271,115 +271,115 @@ def get_smwblocks_param(
     act_as: Optional[str] = None,
     includes_gfx: Optional[bool] = None,
     desc: Optional[str] = None,
-):
-    params = {}
+) -> ParamSet:
+    params = []
     if name is not None:
-        params["name"] = name
+        params.append((name, ParamField.NAME))
     if author is not None:
-        params["author"] = author
+        params.append((author, ParamField.AUTHOR))
     if tags is not None:
-        params["tags"] = tags
+        params.append((tags, ParamField.TAGS))
     if act_as is not None:
-        params["act_as"] = act_as
+        params.append((act_as, ParamField.ACTAS))
     if includes_gfx is not None:
-        params["includes_gfx"] = includes_gfx
+        params.append((includes_gfx, ParamField.INCLUDESGFX))
     if desc is not None:
-        params["desc"] = desc
+        params.append((desc, ParamField.DESCRIPTION))
 
-    return form_params(params)
+    return ParamSet(params)
 
 
 def get_smwsprites_param(
     name: Optional[str] = None,
     author: Optional[str] = None,
     tags: Optional[List[str]] = None,
-    tool: Optional[List[SpritesTool]] = None,
-    sprite_type: Optional[List[SpriteType]] = None,
+    tool: Optional[List[SMWSpritesTool]] = None,
+    sprite_type: Optional[List[SMWSpriteType]] = None,
     dynamic: Optional[bool] = None,
     disassembly: Optional[bool] = None,
     includes_gfx: Optional[bool] = None,
     desc: Optional[str] = None,
-):
-    params = {}
+) -> ParamSet:
+    params = []
     if name is not None:
-        params["name"] = name
+        params.append((name, ParamField.NAME))
     if author is not None:
-        params["author"] = author
+        params.append((author, ParamField.AUTHOR))
     if tags is not None:
-        params["tags"] = tags
+        params.append((tags, ParamField.TAGS))
     if tool is not None:
-        params["tool"] = [t.value[1] for t in tool]
+        params.append((tool, ParamField.TOOL))
     if sprite_type is not None:
-        params["type"] = [s.value[1] for s in sprite_type]
+        params.append((sprite_type, ParamField.TYPE))
     if dynamic is not None:
-        params["dynamic"] = dynamic
+        params.append((dynamic, ParamField.DYNAMIC))
     if disassembly is not None:
-        params["disassembly"] = disassembly
+        params.append((disassembly, ParamField.DISASSEMBLY))
     if includes_gfx is not None:
-        params["includes_gfx"] = includes_gfx
+        params.append((includes_gfx, ParamField.INCLUDESGFX))
     if desc is not None:
-        params["desc"] = desc
+        params.append((desc, ParamField.DESCRIPTION))
 
-    return form_params(params)
+    return ParamSet(params)
 
 
 def get_smwpatches_param(
     name: Optional[str] = None,
     author: Optional[str] = None,
     tags: Optional[List[str]] = None,
-    tool: Optional[List[PatchTool]] = None,
+    tool: Optional[List[SMWPatchTool]] = None,
     requires_free_space: Optional[bool] = None,
     bug_fix: Optional[bool] = None,
-    featured: Optional[List[FeaturedSMWPatches]] = None,
+    featured: Optional[List[SMWFeaturedPatches]] = None,
     desc: Optional[str] = None,
-):
-    params = {}
+) -> ParamSet:
+    params = []
     if name is not None:
-        params["name"] = name
+        params.append((name, ParamField.NAME))
     if author is not None:
-        params["author"] = author
+        params.append((author, ParamField.AUTHOR))
     if tags is not None:
-        params["tags"] = tags
+        params.append((tags, ParamField.TAGS))
     if tool is not None:
-        params["tool"] = [t.value[1] for t in tool]
+        params.append((tool, ParamField.TOOL))
     if requires_free_space is not None:
-        params["requires_free_space"] = requires_free_space
+        params.append((requires_free_space, ParamField.FREESPACE))
     if bug_fix is not None:
-        params["bug_fix"] = bug_fix
+        params.append((bug_fix, ParamField.BUGFIX))
     if featured is not None:
-        params["featured"] = [f.value[1] for f in featured]
+        params.append((featured, ParamField.FEATURED_LIST))
     if desc is not None:
-        params["desc"] = desc
+        params.append((desc, ParamField.DESCRIPTION))
 
-    return form_params(params)
+    return ParamSet(params)
 
 
 def get_uberasm_param(
     name: Optional[str] = None,
     author: Optional[str] = None,
     tags: Optional[List[str]] = None,
-    uberasm_type: Optional[List[UberASMType]] = None,
+    uberasm_type: Optional[List[SMWUberASMType]] = None,
     includes_gfx: Optional[bool] = None,
     includes_hijack: Optional[bool] = None,
     featured: Optional[bool] = None,
     desc: Optional[str] = None,
-):
-    params = {}
+) -> ParamSet:
+    params = []
     if name is not None:
-        params["name"] = name
+        params.append((name, ParamField.NAME))
     if author is not None:
-        params["author"] = author
+        params.append((author, ParamField.AUTHOR))
     if tags is not None:
-        params["tags"] = tags
+        params.append((tags, ParamField.TAGS))
     if uberasm_type is not None:
-        params["type"] = [u.value[1] for u in uberasm_type]
+        params.append((uberasm_type, ParamField.TYPE))
     if includes_gfx is not None:
-        params["includes_gfx"] = includes_gfx
+        params.append((includes_gfx, ParamField.INCLUDESGFX))
     if includes_hijack is not None:
-        params["includes_hijack"] = includes_hijack
+        params.append((includes_hijack, ParamField.INCLUDESHIJACK))
     if featured is not None:
-        params["featured"] = featured
+        params.append((featured, ParamField.FEATURED))
     if desc is not None:
-        params["desc"] = desc
+        params.append((desc, ParamField.DESCRIPTION))
 
-    return form_params(params)
+    return ParamSet(params)
