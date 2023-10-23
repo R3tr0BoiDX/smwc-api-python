@@ -62,4 +62,5 @@ A file is any submission on SMW Central. To retrieve a files details, you use th
 
 - revision 2
 - complete the docstrings
+- `pip install` support
 - improving the sections and filter structure
