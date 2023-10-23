@@ -1,12 +1,51 @@
+"""
+Author: R3tr0BoiDX
+
+Date: 2023-10-18
+
+Description:
+    This module contains the File class, which represents a file on SMW Central.
+    It contains information about the file, such as its name, authors, rating, etc.
+    This class is used to represent a file in a section list, which is returned
+    when calling the `get_section_list` function in `api.py`.
+    It contains additional information, such as tags, versions, and images
+    if called via the `get_file` function in `api.py`.
+"""
 from typing import List, Union
 from smwc_types import User
 from smwc_types.version import Version
-from smwc_types.fields import Field, SM64, SMW
+from smwc_types.fields import Field, SM64, SMW, YI
 from smwc_types.section import Section
 
 
 class File:
-    """Any type of file on SMW Central"""
+    """
+    Represents a file on SMW Central.
+    It contains information about the file, such as its name, authors, rating, etc.
+    This class is used to represent a file in a section list or a direct file request.
+    It contains information, such as ID, section, name, authors, etc.
+    It also can contains additional information, such as tags, versions, and images
+    when requested directly.
+
+    Attributes:
+        id: The files ID
+        section: The files section
+        name: The files name
+        time: Time at which the file was added to the section as UNIX timestamp.
+        moderated: Whether the file is moderated
+        authors: Authors of the file. Users may be unregistered.
+        submitter: For waiting files, user who submitted the file. Always `None` for moderated files.
+        rating: File rating, if the section allows ratings.
+        size: File size in bytes.
+        downloads: Number of downloads.
+        download_url: URL at which the file can be downloaded. Make a `GET` request to download the file.
+        obsoleted_by: If the file is obsolete (i.e. an update has been submitted), the ID of the newest version.
+        fields: Section-specific fields. See `smwc_types/fields` for more information.
+        extended: Whether the file possesses additional values
+        tags: List of tags on the file.
+        versions: The full version history of the file, sorted from newest to oldest.
+        images: If the section has images, list of URLs for each image on the file.
+    """
 
     id: int
     section: str
@@ -48,6 +87,8 @@ class File:
 
         if self.section == Section.SMW.HACKS:
             self.fields = SMW.Hack(data.get("fields"))
+        elif self.section == Section.YI.HACKS:
+            self.fields = YI.Hack(data.get("fields"))
         elif self.section == Section.SM64.HACKS:
             self.fields = SM64.Hack(data.get("fields"))
 
