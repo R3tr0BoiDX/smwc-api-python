@@ -8,7 +8,7 @@
             "name": "Run example",
             "type": "python",
             "request": "launch",
-            "module": "example",
+            "module": "_example",
             "console": "integratedTerminal",
             "justMyCode": true
         },
