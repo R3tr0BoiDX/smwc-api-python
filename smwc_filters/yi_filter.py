@@ -15,6 +15,7 @@ class YIMusicType(Enum):
     """
     Type of a YI music entry.
     """
+
     SONG = ("Song", 144)
     SOUNDTRACK = ("Soundtrack", 145)
     SOUND_EFFECT = ("Sound Effect", 146)
@@ -25,6 +26,7 @@ class YIFeaturedPatches(Enum):
     """
     if the patch was featured or not.
     """
+
     NO = ("No", 136)
     YES = ("Yes", 137)
 
@@ -33,6 +35,7 @@ class YISPASMType(Enum):
     """
     Type of a SPASM.
     """
+
     INIT = ("Init", 153)
     MAIN = ("Main", 154)
 

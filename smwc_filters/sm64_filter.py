@@ -15,6 +15,7 @@ class SM64Difficulty(Enum):
     """
     the difficulty of a SM64 hack.
     """
+
     EASY = ("Easy", 148)
     INTERMEDIATE = ("Intermediate", 149)
     HARD = ("Hard", 150)
@@ -25,6 +26,7 @@ class SM64TexturesType(Enum):
     """
     Type of a SM64 texture.
     """
+
     ORIGINAL = ("Original", 39)
     RIPPED = ("Ripped", 40)
 
@@ -33,6 +35,7 @@ class SM64Nlist(Enum):
     """
     the nlist of a SM64 music entry.
     """
+
     NLST0 = ("NLST 0 (SFX)", 1)
     NLST1 = ("NLST 1 (SFX, Footsteps)", 2)
     NLST2 = ("NLST 2 (SFX, Water)", 3)

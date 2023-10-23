@@ -12,6 +12,7 @@ class SortBy(Enum):
     """
     Value to sort the results by,
     """
+
     DATE = "date"
     NAME = "name"
     FILESIZE = "filesize"

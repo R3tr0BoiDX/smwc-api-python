@@ -33,6 +33,7 @@ class Pagination:
         index_to: Index (starting at 1) of the last record in this response. For the last page, this is `total`.
         data: Results, see the specific endpoint for information.
     """
+
     total: int
     per_page: int
     current_page: int
