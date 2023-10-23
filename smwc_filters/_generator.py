@@ -1,16 +1,31 @@
+"""
+Author: R3tr0BoiDX
+
+Date: 2023-10-18
+
+Description:
+    This module contains the ParamSet class, which represents a set of parameters
+    which are used to filter SMW files on SMW Central. It also contains the ParamField
+    and ParamType enums, which are used to specify the type of a parameter.
+    Furthermore, it contains functions to construct a URL from a ParamSet.
+
+TODOs:
+    todo: Submodule for every section
+    todo: Adjust all get_param functions accept union for enum and list of enum, in case of a list
+"""
+
 from enum import Enum
 from typing import Any, List, Tuple, Union
 from urllib.parse import quote_plus
 
-from constants import BASE_URL
-
 SAFE_CHARS = '"*-.<>_'
-
-# todo: submodule for every section
-# todo: adjust all get_param functions to have union for enum and list of enum
 
 
 class ParamType(Enum):
+    """
+    Type of a parameter.
+    """
+
     STRING = 1
     BOOL = 2
     LIST = 3
@@ -19,8 +34,13 @@ class ParamType(Enum):
 
 # todo: recheck with new API specification
 class ParamField(Enum):
+    """
+    a parameter on SMW Central.
+    It contains the name and type of each parameter.
+    """
+
     ACTAS = ("actas", ParamType.STRING)
-    AUTHOR = ("author", ParamType.STRING)
+    AUTHOR = ("author", ParamType.CSV)
     BUGFIX = ("bugfix", ParamType.BOOL)
     COLLECTION = ("collection", ParamType.LIST)
     CUSTOM = ("custom", ParamType.BOOL)
@@ -53,6 +73,10 @@ class ParamField(Enum):
 
 
 class ParamSet:
+    """
+    Represents a set of parameters, which are used to filter files on SMW Central.
+    """
+
     def __init__(self, params: List[Tuple[Any, ParamField]] = None):
         self.params = params or {}
 
@@ -60,12 +84,19 @@ class ParamSet:
         return "&".join(_form_params(self.params))
 
 
-def construct_url(params: str, base_url: str = BASE_URL) -> str:
-    full_url = f"{base_url}?{params}"
-    return full_url
-
-
 def _form_params(params: list) -> List[str]:
+    """
+    Forms a list of parameters from a list of tuples.
+    Each tuple contains the value and the field of a parameter.
+    The field is an instance of the `ParamField` enum, which specifies the type and name of the parameter.
+    The function returns a list of strings, which are the parameters.
+
+    Args:
+        params (list): List of tuples, which contain the value and field of a parameter.
+
+    Returns:
+        List[str]: List of strings, which can be linked together to form a URL.
+    """
     if len(params) == 0:
         return ""
 
@@ -89,18 +120,48 @@ def _form_params(params: list) -> List[str]:
 
 
 def _form_str_param(name: str, value: str) -> str:
+    """
+    Forms a parameter from a name and a string value.
+
+    Args:
+        name (str): Name of the parameter.
+        value (str): Value of the parameter.
+
+    Returns:
+        str: Formed parameter string.
+    """
     return f"f%5B{name}%5D={_encode_value(value)}"
     # [name]=value
     # example: [name]=value
 
 
 def _form_bool_param(name: str, value: bool) -> str:
+    """
+    Forms a parameter from a name and a boolean value.
+
+    Args:
+        name (str): Name of the parameter.
+        value (bool): Value of the parameter.
+
+    Returns:
+        str: Formed parameter string.
+    """
     return f"f%5B{name}%5D={1 if value else 0}"
     # [name]=value
     # example: [featured]=1
 
 
 def _form_csv_param(name: str, values: Union[str, List[str]]) -> str:
+    """
+    Forms a parameter from a name and a string or list of strings.
+
+    Args:
+        name (str): Name of the parameter.
+        values (Union[str, List[str]]): (List of) value(s) of the parameter.
+
+    Returns:
+        str: Formed CSV parameter string.
+    """
     # convert single enum to list
     if isinstance(values, str):
         values = [values]
@@ -116,6 +177,16 @@ def _form_csv_param(name: str, values: Union[str, List[str]]) -> str:
 
 
 def _form_list_param(name: str, values: Union[Enum, List[Enum]]) -> List[str]:
+    """
+    Forms a parameter from a name and an enum or list of enums.
+
+    Args:
+        name (str): Name of the parameter.
+        values (Union[Enum, List[Enum]]): (List of) value(s) of the parameter.
+
+    Returns:
+        List[str]: Formed list parameter strings.
+    """
     # convert single enum to list
     if isinstance(values, Enum):
         values = [values]
@@ -134,6 +205,15 @@ def _form_list_param(name: str, values: Union[Enum, List[Enum]]) -> List[str]:
 
 
 def _flatten_list(nested_list):
+    """
+    Flattens a nested list.
+
+    Args:
+        nested_list (list): Nested list to flatten.
+
+    Returns:
+        list: Flattened list.
+    """
     flat_list = []
     for item in nested_list:
         if isinstance(item, list):
@@ -144,6 +224,16 @@ def _flatten_list(nested_list):
 
 
 def _encode_value(value: str, additional_safe: str = "") -> str:
+    """
+    Encodes a string for a URL.
+
+    Args:
+        value (str): String to encode.
+        additional_safe (str, optional): Additional characters to encode. Defaults to "".
+
+    Returns:
+        str: URL safe encoded string.
+    """
     return quote_plus(value, safe=SAFE_CHARS + additional_safe)
 
 

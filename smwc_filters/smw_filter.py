@@ -1,10 +1,21 @@
-from typing import List, Optional
+"""
+Author: R3tr0BoiDX
+
+Date: 2023-10-18
+
+Description: This module contains the filters for all SMW sections on SMWC API.
+"""
+from typing import List, Optional, Union
 from enum import Enum
 
 from ._generator import ParamSet, ParamField
 
 
 class SMWDifficulty(Enum):
+    """
+    the difficulty of a SMW hack.
+    """
+
     EASY = ("Standard: Easy", 104)
     NORMAL = ("Standard: Normal", 105)
     HARD = ("Standard: Hard", 106)
@@ -18,11 +29,19 @@ class SMWDifficulty(Enum):
 
 
 class SMWGraphicsType(Enum):
+    """
+    Type of a SMW graphic.
+    """
+
     ORIGINAL = ("Original", 52)
     RIPPED = ("Ripped", 53)
 
 
 class SMWPurpose(Enum):
+    """
+    the purpose of a SMW graphic.
+    """
+
     BACKGROUND = ("Background", 54)
     FOREGROUND = ("Foreground", 55)
     SPRITE = ("Sprite", 56)
@@ -35,6 +54,10 @@ class SMWPurpose(Enum):
 
 
 class SMWSlotsUsed(Enum):
+    """
+    how many slots are used by a SMW graphic.
+    """
+
     BG1 = ("BG1", 162)
     BG2 = ("BG2", 163)
     BG3 = ("BG3", 164)
@@ -56,6 +79,10 @@ class SMWSlotsUsed(Enum):
 
 
 class SMWPaletteRowsUsed(Enum):
+    """
+    how many palette rows are used by a SMW graphic.
+    """
+
     ROWS_0 = ("0", 180)
     ROWS_1 = ("1", 181)
     ROWS_2 = ("2", 182)
@@ -75,6 +102,10 @@ class SMWPaletteRowsUsed(Enum):
 
 
 class SMWMusicType(Enum):
+    """
+    Type of a SMW music entry.
+    """
+
     SONG = ("Song", 109)
     SOUNDTRACK = ("Soundtrack", 110)
     SOUND_EFFECT = ("Sound Effect", 111)
@@ -82,23 +113,39 @@ class SMWMusicType(Enum):
 
 
 class SMWSampleUsage(Enum):
+    """
+    the sample usage of a SMW music entry.
+    """
+
     NONE = ("None", 155)
     LIGHT = ("Light", 156)
     MANY = ("Many", 157)
 
 
 class SMWSource(Enum):
+    """
+    the source of a SMW music entry.
+    """
+
     PORT = ("Port", 158)
     REMIX = ("Remix", 159)
     ORIGINAL = ("Original", 160)
 
 
 class SMWCollection(Enum):
+    """
+    the collection status of a BRR sample.
+    """
+
     COMPILATION = ("Compilation", 134)
     SINGLE = ("Single", 135)
 
 
 class SMWSpritesTool(Enum):
+    """
+    the tool used to create a SMW sprite.
+    """
+
     PIXI = ("PIXI", 142)
     GIEPY = ("GIEPY", 143)
     ROMIS_SPRITE_TOOL = ("Romi's Spritetool", 41)
@@ -107,6 +154,10 @@ class SMWSpritesTool(Enum):
 
 
 class SMWSpriteType(Enum):
+    """
+    Type of a SMW sprite.
+    """
+
     STANDARD = ("Standard", 46)
     SHOOTER = ("Shooter", 47)
     GENERATOR = ("Generator", 48)
@@ -118,18 +169,30 @@ class SMWSpriteType(Enum):
 
 
 class SMWPatchTool(Enum):
+    """
+    the tool required to insert a SMW patch.
+    """
+
     XKAS = ("xkas", 1)
     ASAR = ("Asar", 2)
     XKAS_OR_ASAR = ("xkas or Asar", 3)
 
 
 class SMWFeaturedPatches(Enum):
+    """
+    if a SMW patch was featured.
+    """
+
     NO = ("No", 70)
     YES = ("Yes", 71)
     ESSENTIAL = ("Essential", 72)
 
 
 class SMWUberASMType(Enum):
+    """
+    Type of a SMW UberASM.
+    """
+
     LEVEL = ("Level", 138)
     OVERWORLD = ("Overworld", 139)
     GAME_MODE = ("Game Mode", 140)
@@ -138,13 +201,28 @@ class SMWUberASMType(Enum):
 
 def get_smwhacks_param(
     name: Optional[str] = None,
-    author: Optional[str] = None,
-    tags: Optional[List[str]] = None,
+    author: Optional[Union[str, List[str]]] = None,
+    tags: Optional[Union[str, List[str]]] = None,
     demo: Optional[bool] = None,
     featured: Optional[bool] = None,
     difficulty: Optional[List[SMWDifficulty]] = None,
     desc: Optional[str] = None,
 ) -> ParamSet:
+    """
+    Returns a `ParamSet`, which represents the parameters for the SMW hacks section.
+
+    Args:
+        name (str, optional): Part of the name of the hack.
+        author (str/List[str], optional): The author(s) that contributed to the hack.
+        tags (str/List[str], optional): The tag(s) of the hack.
+        demo (bool, optional): Whether the hack is a demo.
+        featured (bool, optional): Whether the hack was featured.
+        difficulty (SMWDifficulty/List[SMWDifficulty], optional): The difficulty of the hack.
+        desc (str, optional): Part of the description of the hack.
+
+    Returns:
+        ParamSet: The specified parameters for the SMW hacks section.
+    """
     params = []
     if name is not None:
         params.append((name, ParamField.NAME))
@@ -166,9 +244,20 @@ def get_smwhacks_param(
 
 def get_sramdatabase_param(
     name: Optional[str] = None,
-    author: Optional[str] = None,
-    tags: Optional[List[str]] = None,
+    author: Optional[Union[str, List[str]]] = None,
+    tags: Optional[Union[str, List[str]]] = None,
 ) -> ParamSet:
+    """
+    Returns a `ParamSet`, which represents the parameters for the SRAM database section.
+
+    Args:
+        name (str, optional): Part of the name of the SRAM save.
+        author (str/List[str], optional): The author(s) that contributed to the SRAM save.
+        tags (str/List[str], optional): The tag(s) of the SRAM save.
+
+    Returns:
+        ParamSet: The specified parameters for the SRAM database section.
+    """
     params = []
     if name is not None:
         params.append((name, ParamField.NAME))
@@ -182,14 +271,30 @@ def get_sramdatabase_param(
 
 def get_smwgraphics_param(
     name: Optional[str] = None,
-    author: Optional[str] = None,
-    tags: Optional[List[str]] = None,
+    author: Optional[Union[str, List[str]]] = None,
+    tags: Optional[Union[str, List[str]]] = None,
     graphics_type: Optional[List[SMWGraphicsType]] = None,
     purpose: Optional[List[SMWPurpose]] = None,
     slots_used: Optional[List[SMWSlotsUsed]] = None,
     palette_rows_used: Optional[List[SMWPaletteRowsUsed]] = None,
     desc: Optional[str] = None,
 ) -> ParamSet:
+    """
+    Returns a `ParamSet`, which represents the parameters for the SMW graphics section.
+
+    Args:
+        name (str, optional): Part of the name of the graphic.
+        author (str/List[str], optional): The author(s) that contributed to the graphic.
+        tags (str/List[str], optional): The tag(s) of the graphic.
+        graphics_type (SMWGraphicsType/List[SMWGraphicsType], optional): The type(s) of the graphic.
+        purpose (SMWPurpose/List[SMWPurpose], optional): The purpose(s) of the graphic.
+        slots_used (SMWSlotsUsed/List[SMWSlotsUsed], optional): The slot(s) used by the graphic.
+        palette_rows_used (SMWPaletteRowsUsed/List[SMWPaletteRowsUsed], optional): The palette rows used by the graphic.
+        desc (str, optional): Part of the description of the graphic.
+
+    Returns:
+        ParamSet: The specified parameters for the SMW graphics section.
+    """
     params = []
     if name is not None:
         params.append((name, ParamField.NAME))
@@ -213,14 +318,30 @@ def get_smwgraphics_param(
 
 def get_smwmusic_param(
     name: Optional[str] = None,
-    author: Optional[str] = None,
-    tags: Optional[List[str]] = None,
+    author: Optional[Union[str, List[str]]] = None,
+    tags: Optional[Union[str, List[str]]] = None,
     music_type: Optional[List[SMWMusicType]] = None,
     sample_usage: Optional[List[SMWSampleUsage]] = None,
     source: Optional[List[SMWSource]] = None,
     featured: Optional[bool] = None,
     desc: Optional[str] = None,
 ) -> ParamSet:
+    """
+    Returns a `ParamSet`, which represents the parameters for the SMW music section.
+
+    Args:
+        name (str, optional): Part of the name of the music entry.
+        author (str/List[str], optional): The author(s) that contributed to the music entry.
+        tags (str/List[str], optional): The tag(s) of the music entry.
+        music_type (SMWMusicType/List[SMWMusicType], optional): The type(s) of the music entry.
+        sample_usage (SMWSampleUsage/List[SMWSampleUsage], optional): The sample usage of the music entry.
+        source (SMWSource/List[SMWSource], optional): The source(s) of the music entry.
+        featured (bool, optional): Whether the music entry was featured.
+        desc (str, optional): Part of the description of the music entry.
+
+    Returns:
+        ParamSet: The specified parameters for the SMW music section.
+    """
     params = []
     if name is not None:
         params.append((name, ParamField.NAME))
@@ -244,11 +365,24 @@ def get_smwmusic_param(
 
 def get_brrsamples_param(
     name: Optional[str] = None,
-    author: Optional[str] = None,
-    tags: Optional[List[str]] = None,
+    author: Optional[Union[str, List[str]]] = None,
+    tags: Optional[Union[str, List[str]]] = None,
     collection: Optional[List[SMWCollection]] = None,
     desc: Optional[str] = None,
 ) -> ParamSet:
+    """
+    Returns a `ParamSet`, which represents the parameters for the BRR samples section.
+
+    Args:
+        name (str, optional): Part of the name of the BRR sample.
+        author (str/List[str], optional): The author(s) that contributed to the BRR sample.
+        tags (str/List[str], optional): The tag(s) of the BRR sample.
+        collection (SMWCollection/List[SMWCollection], optional): The collection status of the BRR sample.
+        desc (str, optional): Part of the description of the BRR sample.
+
+    Returns:
+        ParamSet: The specified parameters for the BRR samples section.
+    """
     params = []
     if name is not None:
         params.append((name, ParamField.NAME))
@@ -266,12 +400,26 @@ def get_brrsamples_param(
 
 def get_smwblocks_param(
     name: Optional[str] = None,
-    author: Optional[str] = None,
-    tags: Optional[List[str]] = None,
+    author: Optional[Union[str, List[str]]] = None,
+    tags: Optional[Union[str, List[str]]] = None,
     act_as: Optional[str] = None,
     includes_gfx: Optional[bool] = None,
     desc: Optional[str] = None,
 ) -> ParamSet:
+    """
+    Returns a `ParamSet`, which represents the parameters for the SMW blocks section.
+
+    Args:
+        name (str, optional): Part of the name of the block.
+        author (str/List[str], optional): The author(s) that contributed to the block.
+        tags (str/List[str], optional): The tag(s) of the block.
+        act_as (str, optional): What the tile should this block act like.
+        includes_gfx (bool, optional): Whether the block includes graphics.
+        desc (str, optional): Part of the description of the block.
+
+    Returns:
+        ParamSet: The specified parameters for the SMW blocks section.
+    """
     params = []
     if name is not None:
         params.append((name, ParamField.NAME))
@@ -291,8 +439,8 @@ def get_smwblocks_param(
 
 def get_smwsprites_param(
     name: Optional[str] = None,
-    author: Optional[str] = None,
-    tags: Optional[List[str]] = None,
+    author: Optional[Union[str, List[str]]] = None,
+    tags: Optional[Union[str, List[str]]] = None,
     tool: Optional[List[SMWSpritesTool]] = None,
     sprite_type: Optional[List[SMWSpriteType]] = None,
     dynamic: Optional[bool] = None,
@@ -300,6 +448,23 @@ def get_smwsprites_param(
     includes_gfx: Optional[bool] = None,
     desc: Optional[str] = None,
 ) -> ParamSet:
+    """
+    Returns a `ParamSet`, which represents the parameters for the SMW sprites section.
+
+    Args:
+        name (str, optional): Part of the name of the sprite.
+        author (str/List[str], optional): The author(s) that contributed to the sprite.
+        tags (str/List[str], optional): The tag(s) of the sprite.
+        tool (SMWSpritesTool/List[SMWSpritesTool], optional): The tool(s) required to insert the sprite.
+        sprite_type (SMWSpriteType/List[SMWSpriteType], optional): The type(s) of the sprite.
+        dynamic (bool, optional): Whether the sprite is dynamic.
+        disassembly (bool, optional): Whether the sprite is a disassembly.
+        includes_gfx (bool, optional): Whether the sprite includes graphics.
+        desc (str, optional): Part of the description of the sprite.
+
+    Returns:
+        ParamSet: The specified parameters for the SMW sprites section.
+    """
     params = []
     if name is not None:
         params.append((name, ParamField.NAME))
@@ -325,14 +490,30 @@ def get_smwsprites_param(
 
 def get_smwpatches_param(
     name: Optional[str] = None,
-    author: Optional[str] = None,
-    tags: Optional[List[str]] = None,
+    author: Optional[Union[str, List[str]]] = None,
+    tags: Optional[Union[str, List[str]]] = None,
     tool: Optional[List[SMWPatchTool]] = None,
     requires_free_space: Optional[bool] = None,
     bug_fix: Optional[bool] = None,
     featured: Optional[List[SMWFeaturedPatches]] = None,
     desc: Optional[str] = None,
 ) -> ParamSet:
+    """
+    Returns a `ParamSet`, which represents the parameters for the SMW patches section.
+
+    Args:
+        name (str, optional): Part of the name of the patch.
+        author (str/List[str], optional): The author(s) that contributed to the patch.
+        tags (str/List[str], optional): The tag(s) of the patch.
+        tool (SMWPatchTool/List[SMWPatchTool], optional): The tool(s) required to insert the patch.
+        requires_free_space (bool, optional): Whether the patch requires free space.
+        bug_fix (bool, optional): Whether the patch is a bug fix in the original game.
+        featured (SMWFeaturedPatches/List[SMWFeaturedPatches], optional): Whether the patch was featured.
+        desc (str, optional): Part of the description of the patch.
+
+    Returns:
+        ParamSet: The specified parameters for the SMW patches section.
+    """
     params = []
     if name is not None:
         params.append((name, ParamField.NAME))
@@ -356,14 +537,30 @@ def get_smwpatches_param(
 
 def get_uberasm_param(
     name: Optional[str] = None,
-    author: Optional[str] = None,
-    tags: Optional[List[str]] = None,
+    author: Optional[Union[str, List[str]]] = None,
+    tags: Optional[Union[str, List[str]]] = None,
     uberasm_type: Optional[List[SMWUberASMType]] = None,
     includes_gfx: Optional[bool] = None,
     includes_hijack: Optional[bool] = None,
     featured: Optional[bool] = None,
     desc: Optional[str] = None,
 ) -> ParamSet:
+    """
+    Returns a `ParamSet`, which represents the parameters for the UberASM section.
+
+    Args:
+        name (str, optional): Part of the name of the UberASM.
+        author (str/List[str], optional): The author(s) that contributed to the UberASM.
+        tags (str/List[str], optional): The tag(s) of the UberASM.
+        uberasm_type (SMWUberASMType/List[SMWUberASMType], optional): The type(s) of the UberASM.
+        includes_gfx (bool, optional): Whether the UberASM includes graphics.
+        includes_hijack (bool, optional): Whether the UberASM hijacks or other internal changes to the game.
+        featured (bool, optional): Whether the UberASM was featured.
+        desc (str, optional): Part of the description of the UberASM.
+
+    Returns:
+        ParamSet: The specified parameters for the UberASM section.
+    """
     params = []
     if name is not None:
         params.append((name, ParamField.NAME))

@@ -1,3 +1,16 @@
+"""
+Author: R3tr0BoiDX
+
+Date: 2023-10-18
+
+Description:
+    This module contains the SM64 class, which represents any SM64 file on SMW Central.
+    For every section, there is a corresponding SM64 subclass, which contains
+    section-specific information.
+
+TODO: Add remaining SM64 section-specific fields
+"""
+
 from ._base_field import Field
 
 from helper import convert_yes_no, extract_number

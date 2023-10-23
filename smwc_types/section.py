@@ -3,7 +3,9 @@ Author: R3tr0BoiDX
 
 Date: 2023-10-18
 
-Description: This module contains the all the sections available on SMWC.
+Description:
+    This module contains the all the sections available on SMWC.
+    A section is a category of files on SMWC, such as SMW Hacks, SMW Music, SM64 Hacks, etc.
 
 TODO: I'm really not a fan of this class structure. Show me a better way.
 """

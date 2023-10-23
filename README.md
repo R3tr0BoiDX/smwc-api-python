@@ -5,7 +5,7 @@
   <br>
   <img src="https://img.shields.io/badge/API_revision-1-blue" alt="revision">
   <img src="https://img.shields.io/badge/contributions-welcome-green" alt="contributions - welcome">
-  <img src="https://img.shields.io/badge/documentation-please_see_docstrings_(WIP)!-orange" alt="contributions - welcome">
+  <img src="https://img.shields.io/badge/documentation-please_see_docstrings!-orange" alt="documentation">
 </p>
 
 - [SMW Central API Python Wrapper](#smw-central-api-python-wrapper)
@@ -21,7 +21,7 @@ This is a wrapper for the recently released [SMW Central API](https://cloud.smwc
 
 ## Example usage
 
-Using this is quite simple. It's made sure that all identifiers reflect how the site and API names their counterparts. So if you're familiar with the site, this should be easy to get used to. All parameter and attributes are explained in the attached **docstrings**!
+Using this is quite simple. It's made sure that all identifiers reflect how the site and API names their counterparts. So if you're familiar with the site, this should be easy to get used to. All parameter and attributes are explained in the attached **docstrings**! To some extent, you can even see the proper website and API specification as documentation of this.
 
 ```python
 from api import get_section_list
@@ -61,6 +61,7 @@ A file is any submission on SMW Central. To retrieve a files details, you use th
 ## TODO
 
 - revision 2
-- complete the docstrings
+- add parsed fields for all sections
 - `pip install` support
+- export HTML version of documentation
 - improving the sections and filter structure

@@ -1,7 +1,20 @@
+"""
+Author: R3tr0BoiDX
+
+Date: 2023-10-18
+
+Description:
+    This module contains the SMW class, which represents any SMW file on SMW Central.
+    For every section, there is a corresponding SMW subclass, which contains
+    section-specific information.
+
+TODO: Add remaining SMW section-specific fields
+"""
+
 from enum import Enum
 from typing import List
 
-# from filters.smw_filter import HackType
+# from filters.smw_filter import HackType  # todo: fix circular import
 from helper import convert_yes_no, extract_number
 
 from ._base_field import Field

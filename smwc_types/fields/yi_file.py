@@ -1,3 +1,16 @@
+"""
+Author: R3tr0BoiDX
+
+Date: 2023-10-18
+
+Description:
+    This module contains the YI class, which represents any YI file on SMW Central.
+    For every section, there is a corresponding YI subclass, which contains
+    section-specific information.
+
+TODO: Add remaining YI section-specific fields
+"""
+
 from helper import convert_yes_no, extract_number
 
 from ._base_field import Field

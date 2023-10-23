@@ -11,7 +11,7 @@ Description:
     It contains additional information, such as tags, versions, and images
     if called via the `get_file` function in `api.py`.
 """
-from typing import List, Union
+from typing import List, Union, Optional
 from smwc_types import User
 from smwc_types.version import Version
 from smwc_types.fields import Field, SM64, SMW, YI
@@ -40,7 +40,7 @@ class File:
         downloads: Number of downloads.
         download_url: URL at which the file can be downloaded. Make a `GET` request to download the file.
         obsoleted_by: If the file is obsolete (i.e. an update has been submitted), the ID of the newest version.
-        fields: Section-specific fields. See `smwc_types/fields` for more information.
+        fields: Section-specific fields, see `smwc_types/fields`. Raw data if the section is not yet supported.
         extended: Whether the file possesses additional values
         tags: List of tags on the file.
         versions: The full version history of the file, sorted from newest to oldest.
@@ -53,13 +53,13 @@ class File:
     time: int
     moderated: bool
     authors: List[User]
-    submitter: Union[User, None]
-    rating: Union[float, None]
+    submitter: Optional[User]
+    rating: Optional[float]
     size: int
     downloads: int
     download_url: str
-    obsoleted_by: Union[int, None]
-    fields: Field
+    obsoleted_by: Optional[int]
+    fields: Union[Field, dict]
 
     # additional values
     extended: bool = False
@@ -91,8 +91,16 @@ class File:
             self.fields = YI.Hack(data.get("fields"))
         elif self.section == Section.SM64.HACKS:
             self.fields = SM64.Hack(data.get("fields"))
+        else:
+            self.fields = data.get("fields")
 
     def add_additional_values(self, data: dict) -> None:
+        """
+        Adds additional values to the file.
+
+        Args:
+            data: The additional values to add. See above for more information about theses values.
+        """
         self.extended = True
         self.tags = data.get("tags")
         self.versions = []

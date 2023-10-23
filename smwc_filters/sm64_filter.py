@@ -1,10 +1,20 @@
-from typing import List, Optional
+"""
+Author: R3tr0BoiDX
+
+Date: 2023-10-18
+
+Description: This module contains the filters for all SM64 sections on SMWC API.
+"""
+from typing import List, Optional, Union
 from enum import Enum
 
 from ._generator import ParamSet, ParamField
 
 
 class SM64Difficulty(Enum):
+    """
+    the difficulty of a SM64 hack.
+    """
     EASY = ("Easy", 148)
     INTERMEDIATE = ("Intermediate", 149)
     HARD = ("Hard", 150)
@@ -12,11 +22,17 @@ class SM64Difficulty(Enum):
 
 
 class SM64TexturesType(Enum):
+    """
+    Type of a SM64 texture.
+    """
     ORIGINAL = ("Original", 39)
     RIPPED = ("Ripped", 40)
 
 
 class SM64Nlist(Enum):
+    """
+    the nlist of a SM64 music entry.
+    """
     NLST0 = ("NLST 0 (SFX)", 1)
     NLST1 = ("NLST 1 (SFX, Footsteps)", 2)
     NLST2 = ("NLST 2 (SFX, Water)", 3)
@@ -59,12 +75,26 @@ class SM64Nlist(Enum):
 
 def get_sm64hacks_param(
     name: Optional[str] = None,
-    author: Optional[str] = None,
-    tags: Optional[List[str]] = None,
+    author: Optional[Union[str, List[str]]] = None,
+    tags: Optional[Union[str, List[str]]] = None,
     difficulty: Optional[List[SM64Difficulty]] = None,
     demo: Optional[bool] = None,
     desc: Optional[str] = None,
 ) -> ParamSet:
+    """
+    Returns a `ParamSet`, which represents the parameters for the SM64 hacks section.
+
+    Args:
+        name (str, optional): Part of the name of the hack.
+        author (str/List[str], optional): The author(s) that contributed to the hack.
+        tags (str/List[str], optional): The tag(s) of the hack.
+        difficulty (SM64Difficulty/List[SM64Difficulty], optional): The difficult(y/ies) of the hack.
+        demo (bool, optional): Whether the hack is a demo.
+        desc (str, optional): Part of the description of the hack.
+
+    Returns:
+        ParamSet: The specified parameters for the SM64 hacks section.
+    """
     params = []
     if name is not None:
         params.append((name, ParamField.NAME))
@@ -84,11 +114,24 @@ def get_sm64hacks_param(
 
 def get_sm64textures_param(
     name: Optional[str] = None,
-    author: Optional[str] = None,
-    tags: Optional[List[str]] = None,
+    author: Optional[Union[str, List[str]]] = None,
+    tags: Optional[Union[str, List[str]]] = None,
     textures_type: Optional[List[SM64TexturesType]] = None,
     desc: Optional[str] = None,
 ) -> ParamSet:
+    """
+    Returns a `ParamSet`, which represents the parameters for the SM64 textures section.
+
+    Args:
+        name (str, optional): Part of the name of the texture.
+        author (str/List[str], optional): The author(s) that contributed to the texture.
+        tags (str/List[str], optional): The tag(s) of the texture.
+        textures_type (SM64TexturesType/List[SM64TexturesType], optional): The type(s) of the texture.
+        desc (str, optional): Part of the description of the texture.
+
+    Returns:
+        ParamSet: The specified parameters for the SM64 textures section.
+    """
     params = []
     if name is not None:
         params.append((name, ParamField.NAME))
@@ -106,11 +149,24 @@ def get_sm64textures_param(
 
 def get_sm64music_param(
     name: Optional[str] = None,
-    author: Optional[str] = None,
-    tags: Optional[List[str]] = None,
+    author: Optional[Union[str, List[str]]] = None,
+    tags: Optional[Union[str, List[str]]] = None,
     nlist: Optional[List[SM64Nlist]] = None,
     desc: Optional[str] = None,
 ) -> ParamSet:
+    """
+    Returns a `ParamSet`, which represents the parameters for the SM64 music section.
+
+    Args:
+        name (str, optional): Part of the name of the music entry.
+        author (str/List[str], optional): The author(s) that contributed to the music entry.
+        tags (str/List[str], optional): The tag(s) of the music entry.
+        nlist (SM64Nlist/List[SM64Nlist], optional): The nlist(s) of the music entry.
+        desc (str, optional): Part of the description of the music entry.
+
+    Returns:
+        ParamSet: The specified parameters for the SM64 music section.
+    """
     params = []
     if name is not None:
         params.append((name, ParamField.NAME))
